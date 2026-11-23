@@ -1,0 +1,2238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FiveS Digital | CommX - AI in CX Omnichannel Conversational Engine</title>
+  <meta name="description" content="FiveS CommX transforms enterprise contact centers into an intelligent omnichannel conversational grid with real-time sentiment telemetry and zero-drop human escalation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Three.js for 3D Neural Engine Canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <style>
+    :root {
+      --navy: #0F1B2D;
+      --navy-dark: #0A1322;
+      --navy-mid: #16253B;
+      --navy-card: #1B2D47;
+      --navy-border: rgba(255, 255, 255, 0.12);
+      --yellow: #FACC2C;
+      --yellow-dark: #FFB300;
+      --yellow-light: #FFE27A;
+      --yellow-soft: #FFF8E3;
+      --white: #ffffff;
+      --off-white: #F8F9FA;
+      --gray-50: #F1F4F8;
+      --gray-100: #EEF2F7;
+      --gray-200: #E6ECF4;
+      --gray-300: #CBD3DE;
+      --gray-400: #B9C4D2;
+      --gray-500: #7A8594;
+      --gray-700: #55606E;
+      --green: #1F9D6B;
+      --green-light: #dcfce7;
+      --blue: #38BDF8;
+      --blue-soft: #E4F4FF;
+      --accent: var(--yellow);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #14202F;
+      background: var(--navy-dark);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .in {
+      max-width: 1248px;
+      margin: 0 auto;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    h1, h2, h3, h4, p { margin: 0; }
+    h1, h2, h3, h4 {
+      font-family: "PT Serif", Georgia, serif;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      box-sizing: border-box;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      border: none;
+      gap: 8px;
+    }
+    .btn.by {
+      background: var(--yellow);
+      color: var(--navy-dark);
+      box-shadow: 0 8px 24px rgba(250, 204, 44, 0.28);
+    }
+    .btn.by:hover {
+      background: var(--yellow-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(250, 204, 44, 0.4);
+    }
+    .btn.outline {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn.outline:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* STICKY HEADER (Exact from index.html) */
+    .site-header-sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(10, 19, 34, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      padding: 12px 0;
+    }
+    .site-header-sticky.is-scrolled {
+      padding: 10px 0;
+      background: rgba(10, 19, 34, 0.98);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+    }
+    .site-header-sticky .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .site-header-sticky .wm {
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+    }
+    .site-header-sticky .wm b {
+      font-size: 20px;
+      font-family: "PT Serif", Georgia, serif;
+      letter-spacing: -0.02em;
+    }
+    .site-header-sticky .wm b i {
+      color: var(--yellow);
+      font-style: normal;
+    }
+    .site-header-sticky .wm span {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+    .nav-menu-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-menu-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-300);
+      transition: color 0.2s ease;
+      position: relative;
+      padding: 4px 0;
+    }
+    .nav-menu-links a:hover, .nav-menu-links a.active {
+      color: var(--yellow);
+    }
+    .nav-menu-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--yellow);
+      border-radius: 2px;
+    }
+    .nav-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(250, 204, 44, 0.15);
+      border: 1px solid rgba(250, 204, 44, 0.35);
+      color: var(--yellow);
+      font-size: 11px;
+      font-family: monospace;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .btn-pdf-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .btn-pdf-download:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--yellow);
+    }
+    .nav-menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* PRODUCT SUITE SELECTOR BAR (TOP HORIZONTAL PILLS) */
+    .suite-nav-bar {
+      background: var(--navy-mid);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 10px 0;
+      margin-top: 72px;
+    }
+    .suite-nav-bar .in {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow-x: auto;
+      gap: 12px;
+      scrollbar-width: none;
+    }
+    .suite-nav-bar .in::-webkit-scrollbar { display: none; }
+    .suite-label {
+      font-size: 11px;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-400);
+      white-space: nowrap;
+      margin-right: 8px;
+    }
+    .suite-tabs-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .suite-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--gray-300);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .suite-tab-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .suite-tab-btn.active {
+      background: var(--yellow);
+      color: var(--navy-dark);
+      border-color: var(--yellow);
+      box-shadow: 0 4px 16px rgba(250, 204, 44, 0.3);
+    }
+    .suite-tab-btn .badge-pill {
+      font-size: 9px;
+      font-family: monospace;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.15);
+      font-weight: 700;
+    }
+
+    /* SECTION COMMON */
+    .section-wrap {
+      max-width: 1248px;
+      margin: 0 auto;
+      padding: 96px 24px;
+    }
+    .section-kicker {
+      font-size: 12px;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--yellow);
+      margin-bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-kicker::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 0 0 12px var(--yellow);
+    }
+    .section-title {
+      font-size: 42px;
+      line-height: 1.18;
+      color: #fff;
+      max-width: 800px;
+      margin-bottom: 18px;
+    }
+    .section-title .hl {
+      color: var(--yellow);
+      font-style: italic;
+    }
+    .section-desc {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--gray-300);
+      max-width: 720px;
+    }
+
+    /* HERO SECTION */
+    .hero-product {
+      position: relative;
+      padding: 60px 0 80px 0;
+      background: radial-gradient(circle at 75% 40%, rgba(250, 204, 44, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 20% 80%, rgba(56, 189, 248, 0.06) 0%, transparent 50%),
+                  var(--navy-dark);
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-text h1 {
+      font-size: 54px;
+      line-height: 1.12;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .hero-text h1 .hl {
+      color: var(--yellow);
+      font-style: italic;
+    }
+    .hero-tagline {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #D1D9E4;
+      margin-bottom: 24px;
+    }
+    .hero-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--gray-400);
+      margin-bottom: 36px;
+      max-width: 580px;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .hero-trust-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 12px;
+      color: var(--gray-400);
+    }
+    .hero-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-trust-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--yellow);
+    }
+
+    /* 3D CANVAS WRAPPER */
+    .hero-canvas-wrap {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      border-radius: 28px;
+      background: radial-gradient(circle at center, rgba(22, 37, 59, 0.6) 0%, rgba(10, 19, 34, 0.95) 80%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+    #three-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .canvas-hud-tag {
+      position: absolute;
+      background: rgba(22, 37, 59, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 11px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      pointer-events: none;
+    }
+    .canvas-hud-top { top: 16px; left: 16px; }
+    .canvas-hud-bottom { bottom: 16px; right: 16px; }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 0 0 10px var(--yellow);
+      animation: pulseAnimation 2s infinite;
+    }
+    @keyframes pulseAnimation {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+
+    /* STATS RIBBON */
+    .stats-ribbon {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .stat-card {
+      background: rgba(22, 37, 59, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 24px;
+      transition: all 0.3s ease;
+    }
+    .stat-card:hover {
+      border-color: rgba(250, 204, 44, 0.4);
+      transform: translateY(-3px);
+      background: rgba(22, 37, 59, 0.85);
+    }
+    .stat-val {
+      font-size: 38px;
+      font-weight: 700;
+      font-family: "PT Serif", Georgia, serif;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .stat-card:first-child .stat-val { color: var(--yellow); }
+    .stat-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gray-200);
+      margin-bottom: 4px;
+    }
+    .stat-sub {
+      font-size: 12px;
+      color: var(--gray-400);
+    }
+
+    /* INTERACTIVE SANDBOX SECTION */
+    .sandbox-section {
+      background: var(--navy);
+      padding: 96px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+    }
+    .sandbox-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .sandbox-pill-btn {
+      padding: 12px 24px;
+      border-radius: 14px;
+      background: rgba(22, 37, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--gray-300);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+    }
+    .sandbox-pill-btn:hover {
+      background: rgba(22, 37, 59, 0.95);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+    .sandbox-pill-btn.active {
+      background: var(--navy-card);
+      border-color: var(--yellow);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(250, 204, 44, 0.15);
+      transform: translateY(-2px);
+    }
+    .sandbox-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .device-mockup {
+      background: rgba(22, 37, 59, 0.9);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+    }
+    .device-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 24px;
+    }
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .avatar-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--yellow);
+      font-size: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .user-meta h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      font-family: inherit;
+    }
+    .user-meta p {
+      font-size: 12px;
+      color: var(--gray-400);
+    }
+    .sentiment-tag {
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sentiment-tag.urgent {
+      background: rgba(244, 63, 94, 0.15);
+      border: 1px solid rgba(244, 63, 94, 0.35);
+      color: #fda4af;
+    }
+    .sentiment-tag.frustrated {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #fcd34d;
+    }
+    .sentiment-tag.positive {
+      background: rgba(31, 157, 107, 0.15);
+      border: 1px solid rgba(31, 157, 107, 0.35);
+      color: #86efac;
+    }
+
+    .chat-stream {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-height: 260px;
+    }
+    .chat-msg {
+      display: flex;
+      gap: 12px;
+      max-width: 85%;
+    }
+    .chat-msg.user {
+      align-self: flex-start;
+    }
+    .chat-msg.bot {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+      max-width: 90%;
+    }
+    .msg-bubble {
+      padding: 16px 20px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .chat-msg.user .msg-bubble {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border-top-left-radius: 4px;
+    }
+    .chat-msg.bot .msg-bubble {
+      background: rgba(250, 204, 44, 0.09);
+      border: 1px solid rgba(250, 204, 44, 0.3);
+      color: #fff;
+      border-top-right-radius: 4px;
+    }
+    .auto-action-bar {
+      margin-top: 10px;
+      background: rgba(31, 157, 107, 0.15);
+      border: 1px solid rgba(31, 157, 107, 0.3);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 12px;
+      color: #a7f3d0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .handoff-box {
+      margin-top: 16px;
+      padding: 14px 18px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 14px;
+      font-size: 13px;
+      color: #bae6fd;
+      display: none;
+    }
+    .handoff-box.show { display: block; }
+
+    /* TELEMETRY INSPECTOR SIDEBAR */
+    .telemetry-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .telemetry-card {
+      background: rgba(22, 37, 59, 0.8);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 24px;
+    }
+    .telemetry-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--yellow);
+      margin-bottom: 12px;
+    }
+    .telemetry-value-box {
+      background: var(--navy-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .progress-bar-bg {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 8px 0;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--yellow);
+      border-radius: 999px;
+      width: 98%;
+    }
+
+    /* 4-LAYER ARCHITECTURE */
+    .arch-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+      margin-top: 48px;
+    }
+    .arch-layers-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .arch-layer-item {
+      padding: 22px 28px;
+      border-radius: 18px;
+      background: rgba(22, 37, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+    .arch-layer-item:hover {
+      background: rgba(22, 37, 59, 0.9);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .arch-layer-item.active {
+      background: var(--navy-card);
+      border-color: var(--yellow);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+      transform: translateX(4px);
+    }
+    .arch-left-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .arch-step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: monospace;
+      color: #fff;
+    }
+    .arch-layer-item.active .arch-step-num {
+      background: var(--yellow);
+      color: var(--navy-dark);
+    }
+    .arch-titles h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      font-family: inherit;
+    }
+    .arch-titles span {
+      font-size: 11px;
+      font-family: monospace;
+      color: var(--yellow);
+      text-transform: uppercase;
+    }
+    .arch-inspector-box {
+      background: rgba(22, 37, 59, 0.9);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+    }
+    .proto-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 24px 0;
+    }
+    .proto-tag {
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 12px;
+      font-family: monospace;
+      color: #fff;
+    }
+
+    /* 6 CAPABILITIES CARDS GRID */
+    .caps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .cap-card {
+      background: rgba(22, 37, 59, 0.65);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 22px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cap-card:hover {
+      border-color: rgba(250, 204, 44, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+      background: rgba(22, 37, 59, 0.85);
+    }
+    .cap-card-top {
+      margin-bottom: 24px;
+    }
+    .cap-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .cap-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--yellow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .cap-badge-txt {
+      font-size: 11px;
+      font-family: monospace;
+      color: var(--gray-300);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .cap-card h3 {
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .cap-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--gray-300);
+      margin-bottom: 20px;
+    }
+    .cap-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .cap-bullets li {
+      font-size: 12px;
+      color: var(--gray-400);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .cap-bullets li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--yellow);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+    .cap-card-foot {
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 12px;
+      font-family: monospace;
+      font-weight: 700;
+      color: var(--yellow);
+    }
+
+    /* ROI CALCULATOR */
+    .roi-box {
+      background: rgba(22, 37, 59, 0.9);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      padding: 48px;
+      margin-top: 48px;
+    }
+    .roi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .slider-group {
+      margin-bottom: 32px;
+    }
+    .slider-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .slider-badge {
+      font-family: monospace;
+      color: var(--yellow);
+      background: rgba(250, 204, 44, 0.12);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+    input[type=range] {
+      width: 100%;
+      height: 8px;
+      border-radius: 8px;
+      background: var(--navy-card);
+      outline: none;
+      -webkit-appearance: none;
+      accent-color: var(--yellow);
+    }
+    .roi-output-board {
+      background: var(--navy-dark);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 22px;
+      padding: 36px;
+      text-align: left;
+    }
+    .roi-big-stat {
+      font-size: 48px;
+      font-family: "PT Serif", Georgia, serif;
+      font-weight: 700;
+      color: #fff;
+      margin: 8px 0 16px 0;
+    }
+
+    /* ECOSYSTEM SIBLING CARDS */
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .eco-card {
+      background: rgba(22, 37, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 22px;
+      padding: 32px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .eco-card:hover {
+      background: rgba(22, 37, 59, 0.95);
+      border-color: var(--yellow);
+      transform: translateY(-4px);
+    }
+    .eco-card.current {
+      border-color: var(--yellow);
+      background: var(--navy-card);
+      box-shadow: 0 12px 36px rgba(250, 204, 44, 0.15);
+    }
+
+    /* FOOTER (Exact from index.html) */
+    footer {
+      background: var(--navy-dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 48px 0;
+      color: var(--gray-400);
+      font-size: 13px;
+    }
+    .footer-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1248px;
+      margin: 0 auto;
+      padding: 0 24px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .footer-links a:hover {
+      color: var(--yellow);
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 19, 34, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-card {
+      background: var(--navy-mid);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      max-width: 500px;
+      width: 100%;
+      padding: 36px;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .sandbox-grid { grid-template-columns: 1fr; }
+      .arch-grid { grid-template-columns: 1fr; }
+      .caps-grid { grid-template-columns: 1fr 1fr; }
+      .roi-grid { grid-template-columns: 1fr; }
+      .stats-ribbon { grid-template-columns: 1fr 1fr; }
+      .ecosystem-grid { grid-template-columns: 1fr; }
+      .nav-menu-links { display: none; }
+      .nav-menu-toggle { display: block; }
+    }
+    @media (max-width: 640px) {
+      .caps-grid { grid-template-columns: 1fr; }
+      .stats-ribbon { grid-template-columns: 1fr; }
+      .hero-text h1 { font-size: 38px; }
+      .section-title { font-size: 32px; }
+      .roi-box { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY GLASSMORPHIC HEADER (Same as live site) -->
+  <header class="site-header-sticky" id="mainHeader">
+    <div class="in">
+      <div class="nav">
+        <a class="wm" href="index.html#home">
+          <b>FiveS <i>Digital</i></b>
+          <span>Delivering impact sustainably</span>
+        </a>
+
+        <div class="nav-menu-links" id="primary-navigation">
+          <a href="index.html#about">About Us</a>
+          <a href="index.html#cx">CX</a>
+          <a href="commx.html" class="active">AI in CX <span class="nav-badge-pill">Suite</span></a>
+          <a href="index.html#data-services">AI &amp; Data Services</a>
+          <a href="index.html#insights">Industries</a>
+          <a href="index.html#our-people">Our People</a>
+          <a href="index.html#contact">Contact Us</a>
+        </div>
+
+        <button type="button" class="nav-menu-toggle" aria-expanded="false" onclick="toggleMobileMenu()">Menu</button>
+
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a class="btn-pdf-download" href="FiveS_Digital_Homepage_V2.pdf" download="FiveS_Digital_Homepage_V2.pdf">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download Deck</span>
+          </a>
+          <button class="btn by" onclick="openDemoModal()" style="min-height:44px;padding:0 22px;font-size:14px;">Talk to us</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SUITE HORIZONTAL PRODUCT SELECTOR -->
+  <div class="suite-nav-bar">
+    <div class="in">
+      <span class="suite-label">AI in CX Suite:</span>
+      <div class="suite-tabs-group">
+        <button class="suite-tab-btn active" onclick="switchProduct('commx')">
+          <span>CommX</span>
+          <span class="badge-pill">Flagship</span>
+        </button>
+        <button class="suite-tab-btn" onclick="switchProduct('assistx')">
+          <span>AssistX</span>
+          <span class="badge-pill">Agent HUD</span>
+        </button>
+        <button class="suite-tab-btn" onclick="switchProduct('insightx')">
+          <span>InsightX</span>
+          <span class="badge-pill">100% QA</span>
+        </button>
+        <button class="suite-tab-btn" onclick="switchProduct('crmx')">
+          <span>CRMX</span>
+          <span class="badge-pill">360° CRM</span>
+        </button>
+        <button class="suite-tab-btn" onclick="switchProduct('smartx')">
+          <span>SmartX</span>
+          <span class="badge-pill">Auto Bots</span>
+        </button>
+      </div>
+      <a href="index.html" style="font-size:12px;color:var(--gray-300);text-decoration:underline;white-space:nowrap;margin-left:auto;">
+        &larr; Return to Homepage
+      </a>
+    </div>
+  </div>
+
+  <!-- HERO SECTION WITH 3D CANVAS -->
+  <section class="hero-product" id="hero">
+    <div class="in">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="section-kicker" id="p-kicker">FiveS AI in CX Suite // Flagship Omnichannel Engine</div>
+          <h1 id="p-headline">Intelligent Omnichannel Conversations. <span class="hl" id="p-highlight">Unified at Scale.</span></h1>
+          <p class="hero-tagline" id="p-tagline">
+            Connect WhatsApp, Voice AI, Web Chat, RCS &amp; Mobile SDKs with empathy-driven neural routing and zero-drop human escalation.
+          </p>
+          <p class="hero-desc" id="p-desc">
+            FiveS CommX transforms fragmented enterprise touchpoints into a unified conversational intelligence grid. Powered by custom LLM micro-agents, real-time sentiment telemetry, and native CRM synchronization, CommX resolves high-volume tier-1 interactions autonomously while passing rich context to human specialists in milliseconds.
+          </p>
+          <div class="hero-ctas">
+            <a href="#sandbox" class="btn by">Launch Interactive Sandbox</a>
+            <button onclick="openDemoModal()" class="btn outline">Schedule Enterprise Pilot &rarr;</button>
+          </div>
+          <div class="hero-trust-bar">
+            <div class="hero-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>ISO 27001 &amp; SOC 2 Type II</span>
+            </div>
+            <div class="hero-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <span>Sub-1.2s Intent Latency</span>
+            </div>
+            <div class="hero-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+              <span>5,000+ Specialists Network</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D NEURAL CANVAS -->
+        <div class="hero-canvas-wrap">
+          <canvas id="three-canvas"></canvas>
+          <div class="canvas-hud-tag canvas-hud-top">
+            <div class="pulse-dot" id="hud-pulse"></div>
+            <span id="hud-name">CommX Neural Engine</span> &bull; 14+ Channels
+          </div>
+          <div class="canvas-hud-tag canvas-hud-bottom">
+            <span>Latency: <b>&lt;1.2s</b> &bull; <span style="color:#86efac">99.98% SLA</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4-METRIC STATS COUNTERS -->
+      <div class="stats-ribbon" id="stats-ribbon">
+        <div class="stat-card">
+          <div class="stat-val" id="stat-1-val">42%</div>
+          <div class="stat-title" id="stat-1-lbl">First-Contact Resolution</div>
+          <div class="stat-sub">Across voice &amp; digital triage</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="stat-2-val">&lt; 1.2s</div>
+          <div class="stat-title" id="stat-2-lbl">AI Intent Recognition</div>
+          <div class="stat-sub">Proprietary multi-turn NLU</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="stat-3-val">68%</div>
+          <div class="stat-title" id="stat-3-lbl">Inbound Deflection</div>
+          <div class="stat-sub">Tier-1 self-service automation</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="stat-4-val">14+</div>
+          <div class="stat-title" id="stat-4-lbl">Vernacular Languages</div>
+          <div class="stat-sub">Real-time Indian &amp; Global NLP</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE INTERACTIVE PRODUCT SANDBOX -->
+  <section class="sandbox-section" id="sandbox">
+    <div class="in">
+      <div style="text-align:center;max-width:760px;margin:0 auto 40px auto;">
+        <div class="section-kicker">Interactive Live Sandbox</div>
+        <h2 class="section-title">Experience <span class="hl" id="sb-title-product">CommX</span> in Real-Time Action</h2>
+        <p class="section-desc" style="margin:0 auto;">
+          Test how FiveS conversational micro-agents analyze live queries across channels, compute intent and emotional telemetry, and orchestrate zero-drop handoffs to human specialists.
+        </p>
+      </div>
+
+      <!-- Channel & Scenario Selector -->
+      <div class="sandbox-pills" id="sandbox-scenarios">
+        <button class="sandbox-pill-btn active" onclick="loadScenario(0)">
+          <span>BFSI / Personal Loans (WhatsApp)</span>
+        </button>
+        <button class="sandbox-pill-btn" onclick="loadScenario(1)">
+          <span>E-Commerce / NDR Rescue (Voice AI)</span>
+        </button>
+        <button class="sandbox-pill-btn" onclick="loadScenario(2)">
+          <span>Healthcare / Teleconsult (Web Chat)</span>
+        </button>
+      </div>
+
+      <!-- Sandbox Grid -->
+      <div class="sandbox-grid">
+        <!-- Left: Simulated Device -->
+        <div class="device-mockup">
+          <div class="device-header">
+            <div class="user-info">
+              <div class="avatar-circle">U</div>
+              <div class="user-meta">
+                <h4 id="sb-user-name">Priya Sharma (Mumbai)</h4>
+                <p id="sb-user-channel">WhatsApp Business API &bull; Verified Borrower</p>
+              </div>
+            </div>
+            <div id="sb-sentiment-badge" class="sentiment-tag urgent">
+              <span class="pulse-dot" style="background:#f43f5e;width:6px;height:6px;"></span>
+              <span>Urgent Friction (78%)</span>
+            </div>
+          </div>
+
+          <div class="chat-stream">
+            <!-- User Msg -->
+            <div class="chat-msg user">
+              <div class="msg-bubble" id="sb-user-query">
+                Hi, I received an SMS that my loan repayment for #LN-8924 failed today. Can I change my auto-debit bank account before penalty charges apply?
+              </div>
+            </div>
+
+            <!-- Bot Msg -->
+            <div class="chat-msg bot">
+              <div>
+                <div class="msg-bubble" id="sb-bot-response">
+                  Namaste Priya! I can help you update your auto-debit mandate right now to avoid any bounce charges. Your loan #LN-8924 currently shows a pending installment of ₹14,200 due on 25th Nov. Would you like me to send a 1-click UPI authorization link to your registered HDFC account, or link a new bank account via Net Banking?
+                </div>
+                <div class="auto-action-bar">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span id="sb-action-text">Verified OTP via WhatsApp Secure Flow &amp; generated instant NPCI e-Mandate link.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Handoff state -->
+            <div class="handoff-box" id="sb-handoff-state">
+              <b>Live FiveS Specialist Connected (Navi Mumbai Hub):</b> Specialist Vikram K. received complete conversation timeline, authenticated KYC status, and customer mood index in 380ms. Zero repetitive questions asked.
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);">
+            <span style="font-size:12px;color:var(--gray-400);">Simulation Mode: Interactive Synthetic Session</span>
+            <button class="btn outline" onclick="toggleHandoff()" style="min-height:40px;padding:0 18px;font-size:12px;" id="handoff-toggle-btn">
+              Simulate Hot Human Handoff (&lt;400ms)
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Real-time Telemetry -->
+        <div class="telemetry-stack">
+          <div class="telemetry-card">
+            <div class="telemetry-header">
+              <span>Real-Time NLU Telemetry</span>
+              <span style="color:#86efac;font-family:monospace;">98.6% Conf</span>
+            </div>
+            <div style="font-size:12px;color:var(--gray-400);margin-bottom:6px;">Classified Customer Intent:</div>
+            <div class="telemetry-value-box" id="sb-intent-text">
+              Loan Account Update / Mandate Renewal
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--gray-400);">
+              <span>Context Retention Rate</span>
+              <span style="color:var(--yellow);font-weight:700;">100%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill"></div>
+            </div>
+            <p style="font-size:11px;color:var(--gray-400);" id="sb-context-meta">Account #LN-8924, KYC Verified, 0 Bounce History</p>
+          </div>
+
+          <div class="telemetry-card">
+            <div class="telemetry-header" style="color:var(--blue);">
+              <span>Frontline Co-Pilot Guidance</span>
+            </div>
+            <p style="font-size:13px;line-height:1.6;color:var(--gray-200);margin-bottom:12px;" id="sb-copilot-text">
+              Customer CSAT risk low if resolved within 5 mins. Pre-approved for interest rebate voucher.
+            </p>
+            <div style="display:flex;align-items:center;justify-content:space-between;background:var(--navy-card);padding:10px 14px;border-radius:10px;font-size:12px;">
+              <span style="color:var(--gray-400);">CRM Auto-Wrapup:</span>
+              <span style="color:#86efac;font-weight:700;">Ready for Commit</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-LAYER ARCHITECTURE SECTION -->
+  <section class="section-wrap" id="architecture">
+    <div style="text-align:center;max-width:760px;margin:0 auto 40px auto;">
+      <div class="section-kicker">Architecture &amp; Data Flow</div>
+      <h2 class="section-title">The <span class="hl">Enterprise Neural Engine</span></h2>
+      <p class="section-desc" style="margin:0 auto;">
+        Engineered for zero data loss, sub-second latency, and bank-grade data sovereignty. Inspect how data streams from raw customer voice and digital signals down to core enterprise ledger commitments.
+      </p>
+    </div>
+
+    <div class="arch-grid">
+      <div class="arch-layers-list">
+        <div class="arch-layer-item active" onclick="switchArch(0)">
+          <div class="arch-left-info">
+            <div class="arch-step-num">01</div>
+            <div class="arch-titles">
+              <span>Layer 01</span>
+              <h4>Omnichannel Ingestion &amp; Gateways</h4>
+            </div>
+          </div>
+          <span style="font-size:12px;font-family:monospace;color:var(--gray-400);">&lt; 80ms</span>
+        </div>
+
+        <div class="arch-layer-item" onclick="switchArch(1)">
+          <div class="arch-left-info">
+            <div class="arch-step-num">02</div>
+            <div class="arch-titles">
+              <span>Layer 02</span>
+              <h4>FiveS Neural Triage &amp; Intent Engine</h4>
+            </div>
+          </div>
+          <span style="font-size:12px;font-family:monospace;color:var(--gray-400);">&lt; 350ms</span>
+        </div>
+
+        <div class="arch-layer-item" onclick="switchArch(2)">
+          <div class="arch-left-info">
+            <div class="arch-step-num">03</div>
+            <div class="arch-titles">
+              <span>Layer 03</span>
+              <h4>Human-in-the-Loop Co-Pilot &amp; Supervision</h4>
+            </div>
+          </div>
+          <span style="font-size:12px;font-family:monospace;color:var(--gray-400);">&lt; 400ms</span>
+        </div>
+
+        <div class="arch-layer-item" onclick="switchArch(3)">
+          <div class="arch-left-info">
+            <div class="arch-step-num">04</div>
+            <div class="arch-titles">
+              <span>Layer 04</span>
+              <h4>Enterprise System of Record &amp; Action</h4>
+            </div>
+          </div>
+          <span style="font-size:12px;font-family:monospace;color:var(--gray-400);">&lt; 180ms</span>
+        </div>
+      </div>
+
+      <div class="arch-inspector-box">
+        <span style="font-size:11px;font-family:monospace;color:var(--yellow);text-transform:uppercase;" id="arch-step-lbl">Layer 01 Inspection</span>
+        <h3 style="font-size:24px;color:#fff;margin:6px 0 16px 0;" id="arch-title-lbl">Omnichannel Ingestion &amp; Gateways</h3>
+        <p style="font-size:14px;line-height:1.7;color:var(--gray-300);margin-bottom:20px;" id="arch-desc-lbl">
+          Captures synchronous voice streams (SIP/WebRTC) and asynchronous digital payloads (WhatsApp Cloud API, RCS, Webhooks, Mobile SDKs) into high-throughput Kafka queues with zero packet loss.
+        </p>
+
+        <div style="font-size:12px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">
+          Active Ingestion Protocols &amp; Frameworks
+        </div>
+        <div class="proto-tags" id="arch-proto-tags">
+          <span class="proto-tag">WebSockets</span>
+          <span class="proto-tag">SIP / RTP</span>
+          <span class="proto-tag">Apache Kafka</span>
+          <span class="proto-tag">HTTPS REST</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);">
+          <div style="background:var(--navy-card);padding:14px;border-radius:12px;">
+            <div style="font-size:11px;color:var(--gray-400);">Pipeline Latency:</div>
+            <div style="font-size:16px;font-weight:700;color:#fff;font-family:monospace;" id="arch-latency-lbl">&lt; 80ms</div>
+          </div>
+          <div style="background:var(--navy-card);padding:14px;border-radius:12px;">
+            <div style="font-size:11px;color:var(--gray-400);">Compliance Standard:</div>
+            <div style="font-size:13px;font-weight:700;color:#86efac;" id="arch-compliance-lbl">TLS 1.3 &amp; AES-256</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 CAPABILITIES CARDS GRID -->
+  <section class="section-wrap" id="capabilities" style="padding-top:0;">
+    <div style="text-align:center;max-width:760px;margin:0 auto 40px auto;">
+      <div class="section-kicker">Enterprise Capabilities</div>
+      <h2 class="section-title">Built for High-Velocity <span class="hl">Customer Operations</span></h2>
+      <p class="section-desc" style="margin:0 auto;">
+        Every feature is architected to eliminate friction, scale agent capacity, and protect brand integrity with enterprise-grade reliability.
+      </p>
+    </div>
+
+    <div class="caps-grid" id="caps-grid">
+      <div class="cap-card">
+        <div class="cap-card-top">
+          <div class="cap-card-header">
+            <div class="cap-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <span class="cap-badge-txt">14+ Channels</span>
+          </div>
+          <h3>Unified Omnichannel Grid</h3>
+          <p>Single orchestration pane linking WhatsApp Business API, Webhook, SIP Inbound Voice, In-App SDKs, and RCS.</p>
+          <ul class="cap-bullets">
+            <li>Persistent conversation threading across devices</li>
+            <li>Instant cross-channel identity unification</li>
+            <li>Carrier-grade uptime with geo-redundancy</li>
+          </ul>
+        </div>
+        <div class="cap-card-foot">100% Context Retention</div>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-card-top">
+          <div class="cap-card-header">
+            <div class="cap-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+            </div>
+            <span class="cap-badge-txt">BPM Symbiosis</span>
+          </div>
+          <h3>Zero-Drop Human Handoff</h3>
+          <p>Predictive escalation engine detects customer hesitation or complex edge cases and transfers calls with full timeline context.</p>
+          <ul class="cap-bullets">
+            <li>Live synthesized summary injected into agent console</li>
+            <li>Warm call transfer with whisper voice briefing</li>
+            <li>Zero duplicate questions asked to customer</li>
+          </ul>
+        </div>
+        <div class="cap-card-foot">Sub-400ms Hot Transfer</div>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-card-top">
+          <div class="cap-card-header">
+            <div class="cap-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <span class="cap-badge-txt">Multilingual NLU</span>
+          </div>
+          <h3>Vernacular Intelligence</h3>
+          <p>Enterprise language models fine-tuned on regional Indian dialects, code-mixed colloquialisms (Hinglish, Tanglish), and domain terms.</p>
+          <ul class="cap-bullets">
+            <li>Native Hindi, Tamil, Telugu, Kannada, Marathi support</li>
+            <li>Real-time phonetic transcription for accent resilience</li>
+            <li>Contextual tone adaptation matching brand guidelines</li>
+          </ul>
+        </div>
+        <div class="cap-card-foot">94.8% Dialect Accuracy</div>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-card-top">
+          <div class="cap-card-header">
+            <div class="cap-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <span class="cap-badge-txt">Real-Time EQ</span>
+          </div>
+          <h3>Sentiment &amp; Frustration Telemetry</h3>
+          <p>Continuous acoustic, pitch, and lexical analysis detecting subtle emotional shifts, sarcasm, urgency, and brand churn risk.</p>
+          <ul class="cap-bullets">
+            <li>Dynamic priority score bumping in queue</li>
+            <li>Automated proactive goodwill vouchers</li>
+            <li>Continuous CSAT correlation algorithm</li>
+          </ul>
+        </div>
+        <div class="cap-card-foot">7.8x Faster De-escalation</div>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-card-top">
+          <div class="cap-card-header">
+            <div class="cap-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="cap-badge-txt">Bank Grade</span>
+          </div>
+          <h3>Enterprise Security &amp; Masking</h3>
+          <p>Automated on-the-fly masking of Aadhaar, PAN, PCI-DSS card credentials before data touches any LLM layer.</p>
+          <ul class="cap-bullets">
+            <li>ISO 27001 &amp; SOC 2 Type II compliant pipelines</li>
+            <li>On-premise or sovereign Indian cloud deployment</li>
+            <li>End-to-end encrypted voice streaming</li>
+          </ul>
+        </div>
+        <div class="cap-card-foot">Zero PII Leakage</div>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-card-top">
+          <div class="cap-card-header">
+            <div class="cap-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <span class="cap-badge-txt">Zero Code Sync</span>
+          </div>
+          <h3>Native Bi-Directional CRM Sync</h3>
+          <p>Deep synchronization with Salesforce, Zendesk, Zoho, Freshdesk, and core banking/ERP core databases.</p>
+          <ul class="cap-bullets">
+            <li>Automatic ticket creation and status sync</li>
+            <li>Customer 360 profile enrichment on each ping</li>
+            <li>Real-time inventory and refund triggers</li>
+          </ul>
+        </div>
+        <div class="cap-card-foot">&lt; 200ms DB Write Latency</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUANTIFIABLE ROI CALCULATOR -->
+  <section class="section-wrap" id="roi-calc" style="padding-top:0;">
+    <div style="text-align:center;max-width:760px;margin:0 auto 40px auto;">
+      <div class="section-kicker">Quantifiable Business Value</div>
+      <h2 class="section-title">Calculate Your Enterprise <span class="hl">ROI with CommX</span></h2>
+      <p class="section-desc" style="margin:0 auto;">
+        Discover the direct impact on bottom-line operational expenditures, agent capacity multiplier, and customer resolution velocity based on your actual contact volumes.
+      </p>
+    </div>
+
+    <div class="roi-box">
+      <div class="roi-grid">
+        <div>
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>Monthly Customer Interactions</span>
+              <span class="slider-badge" id="roi-vol-display">250,000 / mo</span>
+            </div>
+            <input type="range" id="roi-vol-slider" min="25000" max="1500000" step="25000" value="250000" oninput="updateRoi()">
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--gray-500);margin-top:6px;font-family:monospace;">
+              <span>25K</span>
+              <span>750K</span>
+              <span>1.5M+</span>
+            </div>
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>Current Frontline Agent Workforce</span>
+              <span class="slider-badge" id="roi-agents-display" style="color:var(--blue);background:rgba(56,189,248,0.12);">120 Agents</span>
+            </div>
+            <input type="range" id="roi-agents-slider" min="20" max="600" step="10" value="120" oninput="updateRoi()">
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--gray-500);margin-top:6px;font-family:monospace;">
+              <span>20</span>
+              <span>300</span>
+              <span>600+</span>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;margin-top:24px;">
+            <button class="btn outline" id="curr-inr-btn" onclick="setCurrency('INR')" style="min-height:38px;padding:0 16px;font-size:12px;background:var(--yellow);color:var(--navy-dark);border-color:var(--yellow);">INR (₹)</button>
+            <button class="btn outline" id="curr-usd-btn" onclick="setCurrency('USD')" style="min-height:38px;padding:0 16px;font-size:12px;">USD ($)</button>
+          </div>
+        </div>
+
+        <div class="roi-output-board">
+          <div style="font-size:12px;font-family:monospace;text-transform:uppercase;color:var(--yellow);letter-spacing:0.08em;">
+            Projected Annual OPEX Savings
+          </div>
+          <div class="roi-big-stat" id="roi-savings-stat">₹2.4 Cr</div>
+          <p style="font-size:13px;color:var(--gray-400);line-height:1.6;margin-bottom:24px;">
+            Calculated based on Tier-1 autonomous resolution and zero-friction human escalation.
+          </p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);">
+            <div>
+              <div style="font-size:11px;color:var(--gray-400);">Hours Saved / Month:</div>
+              <div style="font-size:20px;font-weight:700;color:#fff;font-family:monospace;" id="roi-hours-stat">15,700 hrs</div>
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--gray-400);">First-Contact Lift:</div>
+              <div style="font-size:20px;font-weight:700;color:#86efac;font-family:monospace;">+35%</div>
+            </div>
+          </div>
+          <button class="btn by" onclick="openDemoModal()" style="width:100%;margin-top:24px;">Request Detailed Business Case &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALL 5 SIBLING PRODUCTS IN SUITE -->
+  <section class="section-wrap" id="suite-ecosystem" style="padding-top:0;">
+    <div style="text-align:center;max-width:760px;margin:0 auto 40px auto;">
+      <div class="section-kicker">Ecosystem Navigation</div>
+      <h2 class="section-title">The <span class="hl">FiveS AI in CX Suite</span></h2>
+      <p class="section-desc" style="margin:0 auto;">
+        All five modules share a unified architecture, design language, and zero-drop data fabric. Click any product below to preview its specialized interactive blueprint.
+      </p>
+    </div>
+
+    <div class="ecosystem-grid">
+      <div class="eco-card current" onclick="switchProduct('commx')">
+        <div>
+          <span class="badge-pill" style="color:var(--yellow);margin-bottom:12px;display:inline-block;">Omnichannel Core</span>
+          <h3 style="font-size:24px;color:#fff;margin-bottom:8px;">CommX</h3>
+          <p style="font-size:13px;color:var(--gray-300);line-height:1.6;">Omnichannel Conversational AI Engine linking WhatsApp, Voice, RCS &amp; Web Chat.</p>
+        </div>
+        <div style="margin-top:24px;display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);">
+          <span style="font-size:12px;font-family:monospace;color:var(--yellow);">42% FCR Lift</span>
+          <span style="font-size:12px;font-weight:700;color:#fff;">Viewing Now &rarr;</span>
+        </div>
+      </div>
+
+      <div class="eco-card" onclick="switchProduct('assistx')">
+        <div>
+          <span class="badge-pill" style="color:var(--blue);margin-bottom:12px;display:inline-block;">Frontline Copilot</span>
+          <h3 style="font-size:24px;color:#fff;margin-bottom:8px;">AssistX</h3>
+          <p style="font-size:13px;color:var(--gray-300);line-height:1.6;">Real-time agent guidance, automated script compliance, and zero-click CRM note wrapup.</p>
+        </div>
+        <div style="margin-top:24px;display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);">
+          <span style="font-size:12px;font-family:monospace;color:var(--blue);">38% AHT Cut</span>
+          <span style="font-size:12px;font-weight:700;color:var(--gray-300);">Switch Page &rarr;</span>
+        </div>
+      </div>
+
+      <div class="eco-card" onclick="switchProduct('insightx')">
+        <div>
+          <span class="badge-pill" style="color:#86efac;margin-bottom:12px;display:inline-block;">100% Audit QA</span>
+          <h3 style="font-size:24px;color:#fff;margin-bottom:8px;">InsightX</h3>
+          <p style="font-size:13px;color:var(--gray-300);line-height:1.6;">Automated speech &amp; text analytics scoring 100% of interactions with root-cause defect clustering.</p>
+        </div>
+        <div style="margin-top:24px;display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);">
+          <span style="font-size:12px;font-family:monospace;color:#86efac;">100% Audited</span>
+          <span style="font-size:12px;font-weight:700;color:var(--gray-300);">Switch Page &rarr;</span>
+        </div>
+      </div>
+
+      <div class="eco-card" onclick="switchProduct('crmx')">
+        <div>
+          <span class="badge-pill" style="color:#c084fc;margin-bottom:12px;display:inline-block;">Contextual CRM</span>
+          <h3 style="font-size:24px;color:#fff;margin-bottom:8px;">CRMX</h3>
+          <p style="font-size:13px;color:var(--gray-300);line-height:1.6;">AI-native CRM platform providing sub-second 360° customer timelines and automated back-office actions.</p>
+        </div>
+        <div style="margin-top:24px;display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);">
+          <span style="font-size:12px;font-family:monospace;color:#c084fc;">&lt; 250ms Load</span>
+          <span style="font-size:12px;font-weight:700;color:var(--gray-300);">Switch Page &rarr;</span>
+        </div>
+      </div>
+
+      <div class="eco-card" onclick="switchProduct('smartx')">
+        <div>
+          <span class="badge-pill" style="color:#fbbf24;margin-bottom:12px;display:inline-block;">Autonomous RPA</span>
+          <h3 style="font-size:24px;color:#fff;margin-bottom:8px;">SmartX</h3>
+          <p style="font-size:13px;color:var(--gray-300);line-height:1.6;">Intelligent document extraction, automated bank reconciliation, and zero-touch exception queues.</p>
+        </div>
+        <div style="margin-top:24px;display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);">
+          <span style="font-size:12px;font-family:monospace;color:#fbbf24;">99.9% Accuracy</span>
+          <span style="font-size:12px;font-weight:700;color:var(--gray-300);">Switch Page &rarr;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="section-wrap" id="contact" style="padding-top:0;">
+    <div style="background:linear-gradient(135deg, var(--navy-card), var(--navy-mid));border:1px solid rgba(255,255,255,0.15);border-radius:32px;padding:64px 48px;text-align:center;">
+      <div class="section-kicker" style="justify-content:center;">Ready to Modernize?</div>
+      <h2 class="section-title" style="margin:0 auto 20px auto;">
+        Deploy <span class="hl">FiveS CommX</span> in Under 14 Days
+      </h2>
+      <p class="section-desc" style="margin:0 auto 36px auto;">
+        Join premier BFSI, retail, logistics, and healthcare enterprises delivering human-led, AI-backed customer experience across India and global hubs.
+      </p>
+      <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
+        <button class="btn by" onclick="openDemoModal()">Schedule a 30-Minute Live Demo</button>
+        <a href="index.html" class="btn outline">Return to 3D Homepage</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (Exact from live site) -->
+  <footer>
+    <div class="footer-wrap">
+      <div>&copy; 2026 FiveS Digital Pvt. Ltd. Delivering impact sustainably. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#cx">CX</a>
+        <a href="commx.html">AI in CX</a>
+        <a href="index.html#our-people">Our People</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DEMO BOOKING MODAL -->
+  <div class="modal-overlay" id="demo-modal" onclick="if(event.target===this)closeDemoModal()">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeDemoModal()">&times;</button>
+      <div class="section-kicker">Enterprise Demo</div>
+      <h3 style="font-size:24px;color:#fff;margin-bottom:8px;" id="modal-product-title">Schedule CommX Walkthrough</h3>
+      <p style="font-size:13px;color:var(--gray-300);line-height:1.6;margin-bottom:24px;">
+        Connect with our solutions engineering lead for a 30-minute tailored pilot discussion.
+      </p>
+      <form onsubmit="handleDemoSubmit(event)">
+        <div style="margin-bottom:16px;">
+          <label style="font-size:12px;color:var(--gray-300);display:block;margin-bottom:6px;">Full Name</label>
+          <input type="text" required placeholder="e.g. Rahul Sharma" style="width:100%;padding:12px 16px;background:var(--navy-card);border:1px solid rgba(255,255,255,0.12);border-radius:10px;color:#fff;outline:none;">
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="font-size:12px;color:var(--gray-300);display:block;margin-bottom:6px;">Work Email</label>
+          <input type="email" required placeholder="rahul@company.com" style="width:100%;padding:12px 16px;background:var(--navy-card);border:1px solid rgba(255,255,255,0.12);border-radius:10px;color:#fff;outline:none;">
+        </div>
+        <div style="margin-bottom:20px;">
+          <label style="font-size:12px;color:var(--gray-300);display:block;margin-bottom:6px;">Company Name</label>
+          <input type="text" required placeholder="e.g. HDFC Bank, Tata Digital" style="width:100%;padding:12px 16px;background:var(--navy-card);border:1px solid rgba(255,255,255,0.12);border-radius:10px;color:#fff;outline:none;">
+        </div>
+        <button type="submit" class="btn by" style="width:100%;">Confirm Demo Booking &rarr;</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SCRIPT LOGIC (Three.js 3D Canvas + Interactive Tab Switching + Sandbox + ROI) -->
+  <script>
+    /* STICKY HEADER SCROLL */
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('mainHeader');
+      if (!header) return;
+      if (window.scrollY > 40) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    }, { passive: true });
+
+    /* THREE.JS 3D NEURAL ENGINE CANVAS */
+    let scene, camera, renderer, coreMesh, haloMesh, satellitesGroup, particles;
+    let currentColorHex = 0xFACC2C;
+
+    function initThree() {
+      const container = document.querySelector('.hero-canvas-wrap');
+      const canvas = document.getElementById('three-canvas');
+      if (!container || !canvas) return;
+
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+      camera.position.z = 6.5;
+
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      // Central Orb
+      const geom = new THREE.IcosahedronGeometry(1.5, 3);
+      const mat = new THREE.MeshStandardMaterial({
+        color: currentColorHex,
+        emissive: currentColorHex,
+        emissiveIntensity: 0.6,
+        roughness: 0.2,
+        metalness: 0.8,
+        wireframe: false
+      });
+      coreMesh = new THREE.Mesh(geom, mat);
+      scene.add(coreMesh);
+
+      // Outer Halo Wireframe
+      const haloGeom = new THREE.IcosahedronGeometry(1.8, 1);
+      const haloMat = new THREE.MeshBasicMaterial({
+        color: 0xffffff,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.25
+      });
+      haloMesh = new THREE.Mesh(haloGeom, haloMat);
+      scene.add(haloMesh);
+
+      // Satellite Nodes Group
+      satellitesGroup = new THREE.Group();
+      const nodeCount = 5;
+      for (let i = 0; i < nodeCount; i++) {
+        const angle = (i / nodeCount) * Math.PI * 2;
+        const rad = 2.8;
+        const nodeG = new THREE.SphereGeometry(0.2, 16, 16);
+        const nodeM = new THREE.MeshStandardMaterial({
+          color: 0xffffff,
+          emissive: currentColorHex,
+          emissiveIntensity: 0.9,
+          roughness: 0.1
+        });
+        const nMesh = new THREE.Mesh(nodeG, nodeM);
+        nMesh.position.set(Math.cos(angle) * rad, Math.sin(angle * 2) * 0.5, Math.sin(angle) * rad);
+        satellitesGroup.add(nMesh);
+      }
+      scene.add(satellitesGroup);
+
+      // Orbital Ring
+      const ringGeom = new THREE.TorusGeometry(2.8, 0.015, 16, 100);
+      const ringMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.2 });
+      const ringMesh = new THREE.Mesh(ringGeom, ringMat);
+      ringMesh.rotation.x = Math.PI / 3;
+      scene.add(ringMesh);
+
+      // Ambient & Directional Lights
+      const ambLight = new THREE.AmbientLight(0xffffff, 0.6);
+      scene.add(ambLight);
+      const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
+      dirLight.position.set(5, 10, 7);
+      scene.add(dirLight);
+
+      animate();
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const t = Date.now() * 0.001;
+      if (coreMesh) {
+        coreMesh.rotation.y = t * 0.35;
+        coreMesh.rotation.x = Math.sin(t * 0.3) * 0.2;
+      }
+      if (haloMesh) {
+        haloMesh.rotation.y = -t * 0.2;
+        haloMesh.rotation.z = t * 0.15;
+      }
+      if (satellitesGroup) {
+        satellitesGroup.rotation.y = t * 0.25;
+      }
+      renderer.render(scene, camera);
+    }
+
+    window.addEventListener('resize', () => {
+      const container = document.querySelector('.hero-canvas-wrap');
+      if (!container || !renderer || !camera) return;
+      camera.aspect = container.clientWidth / container.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+
+    window.addEventListener('DOMContentLoaded', initThree);
+
+    /* PRODUCT SUITE DATA & CONFIGURATIONS */
+    const PRODUCTS = {
+      commx: {
+        name: 'CommX',
+        kicker: 'FiveS AI in CX Suite // Flagship Omnichannel Engine',
+        headline: 'Intelligent Omnichannel Conversations. <span class="hl">Unified at Scale.</span>',
+        tagline: 'Connect WhatsApp, Voice AI, Web Chat, RCS & Mobile SDKs with empathy-driven neural routing and zero-drop human escalation.',
+        desc: 'FiveS CommX transforms fragmented enterprise touchpoints into a unified conversational intelligence grid. Powered by custom LLM micro-agents, real-time sentiment telemetry, and native CRM synchronization, CommX resolves high-volume tier-1 interactions autonomously while passing rich context to human specialists in milliseconds.',
+        color: '#FACC2C',
+        colorHex: 0xFACC2C,
+        hudPulseColor: '#FACC2C',
+        stats: [
+          { val: '42%', lbl: 'First-Contact Resolution' },
+          { val: '< 1.2s', lbl: 'AI Intent Recognition' },
+          { val: '68%', lbl: 'Inbound Deflection' },
+          { val: '14+', lbl: 'Vernacular Languages' }
+        ],
+        scenarios: [
+          {
+            user: 'Priya Sharma (Mumbai)',
+            channel: 'WhatsApp Business API • Verified Borrower',
+            sentiment: 'Urgent Friction (78%)',
+            sentimentClass: 'urgent',
+            query: 'Hi, I received an SMS that my loan repayment for #LN-8924 failed today. Can I change my auto-debit bank account before penalty charges apply?',
+            response: 'Namaste Priya! I can help you update your auto-debit mandate right now to avoid any bounce charges. Your loan #LN-8924 currently shows a pending installment of ₹14,200 due on 25th Nov. Would you like me to send a 1-click UPI authorization link to your registered HDFC account, or link a new bank account via Net Banking?',
+            action: 'Verified OTP via WhatsApp Secure Flow & generated instant NPCI e-Mandate link.',
+            intent: 'Loan Account Update / Mandate Renewal',
+            copilot: 'Customer CSAT risk low if resolved within 5 mins. Pre-approved for interest rebate voucher.',
+            context: 'Account #LN-8924, KYC Verified, 0 Bounce History'
+          },
+          {
+            user: 'Rajesh Nair (Bengaluru)',
+            channel: 'Voice AI Inbound Call • Order #AWB-40912',
+            sentiment: 'High Frustration (92%)',
+            sentimentClass: 'frustrated',
+            query: 'My courier delivery was marked "Door Closed" twice, but our office reception was open all day! I need this package before 6 PM today.',
+            response: 'I sincerely apologize Rajesh. I have verified your delivery partner’s GPS log and flagged an immediate priority delivery alert for package #AWB-40912. The hub manager at Koramangala has reassigned your order to our senior courier rider with delivery committed before 4:30 PM. I am also sharing the rider’s direct contact on your WhatsApp.',
+            action: 'Triggered NDR re-dispatch via SmartX API & alerted regional delivery supervisor.',
+            intent: 'NDR / Re-attempt Escalation & GPS Verification',
+            copilot: 'Offer 15% wallet credit for courier non-compliance. Warm transfer to live dispatcher ready if customer speaks again.',
+            context: 'AWB-40912, Reception landmark added, GPS coordinate tagged'
+          },
+          {
+            user: 'Aman Verma (Delhi NCR)',
+            channel: 'In-App Web Chat • Patient #MED-8891',
+            sentiment: 'Neutral Inquiry (45%)',
+            sentimentClass: 'positive',
+            query: 'Can you help me understand my blood test report? My fasting glucose is showing 128 mg/dL and I am worried.',
+            response: 'Hello Aman. While a fasting glucose of 128 mg/dL is slightly above the standard normal range (<100 mg/dL), single readings can vary based on meal timing and hydration. Would you like me to connect you with Dr. Mehta for a 10-minute instant tele-consultation to review your full lipid and HbA1c profile?',
+            action: 'Verified report PDF ID #RPT-5012 & scheduled zero-wait doctor video consult slot.',
+            intent: 'Diagnostic Report Query / Teleconsult Routing',
+            copilot: 'Doctor profile pre-loaded. Patient medical history synchronized to consultation console.',
+            context: 'Blood test timestamp: 08:30 AM, Fasting: 11 hrs, Medical ID: #MED-8891'
+          }
+        ]
+      },
+      assistx: {
+        name: 'AssistX',
+        kicker: 'FiveS AI in CX Suite // Frontline Agent Copilot',
+        headline: 'Real-Time Frontline Guidance. <span class="hl">Supercharged Agents.</span>',
+        tagline: 'Equip your customer service specialists with live conversation guidance, instant knowledge retrieval, and automated after-call work.',
+        desc: 'AssistX acts as an intelligent co-pilot sitting alongside your human customer service agents. By listening to live voice audio and scanning digital chats in real time, AssistX delivers contextual knowledge recommendations, compliance prompts, and automated case summaries—cutting handle times by 38% while elevating quality scores.',
+        color: '#38BDF8',
+        colorHex: 0x38BDF8,
+        hudPulseColor: '#38BDF8',
+        stats: [
+          { val: '38%', lbl: 'AHT Reduction' },
+          { val: '99.2%', lbl: 'Compliance Adherence' },
+          { val: '85s', lbl: 'After-Call Work Saved' },
+          { val: '3.4x', lbl: 'Agent Onboarding Speed' }
+        ],
+        scenarios: [
+          {
+            user: 'Ananya Deshmukh (Pune)',
+            channel: 'Inbound Specialist Call • Card #4109',
+            sentiment: 'Urgent Fraud Flag (89%)',
+            sentimentClass: 'urgent',
+            query: 'I see an unauthorized charge of ₹4,890 on my card from an international merchant in Singapore, but my card has always been with me!',
+            response: 'Agent Co-Pilot Active: Prompting immediate temporary card lock & standard RBI fraud dispute workflow.',
+            action: 'Auto-populated Fraud Form #FRD-9902 & verified last authentic transaction.',
+            intent: 'Card Fraud / International Unauthorized Charge',
+            copilot: 'Say: "I understand how concerning this is Ananya. I have immediately blocked international transactions on your card to protect your balance. Let us now initiate a chargeback claim under RBI zero-liability rules."',
+            context: 'Card ending in 4109, Card locked, Zero liability flag set'
+          }
+        ]
+      },
+      insightx: {
+        name: 'InsightX',
+        kicker: 'FiveS AI in CX Suite // Conversation Intelligence & QA',
+        headline: '100% Interaction Audits. <span class="hl">Zero Blind Spots.</span>',
+        tagline: 'Transform millions of unstructured customer voice calls, chats, and emails into actionable business intelligence and automated QA scores.',
+        desc: 'Traditional QA teams only audit 1% to 2% of calls, leaving critical compliance risks and customer churn indicators completely invisible. FiveS InsightX listens to and scores 100% of all voice and digital interactions automatically—identifying emerging product defects, agent coaching opportunities, and compliance breaches with pinpoint accuracy.',
+        color: '#34D399',
+        colorHex: 0x34D399,
+        hudPulseColor: '#34D399',
+        stats: [
+          { val: '100%', lbl: 'Interactions Audited' },
+          { val: '10x', lbl: 'QA Team Velocity' },
+          { val: '96.4%', lbl: 'Root-Cause Accuracy' },
+          { val: '0 Day', lbl: 'Compliance Lag' }
+        ],
+        scenarios: [
+          {
+            user: 'Sunita Reddy (Hyderabad)',
+            channel: 'Audited Voice Call • Gateway TXN-77192',
+            sentiment: 'High Friction (95%)',
+            sentimentClass: 'frustrated',
+            query: 'My money was deducted but the electricity bill is still unpaid! This is the third time this week your app has failed me.',
+            response: 'InsightX Automated QA Score: 94% (Pass). Empathy: 92/100, Verification: 100/100, Script Compliance: 95/100. Tagged Product Defect: #BillPay-Discom-Timeout.',
+            action: 'Flagged for payment gateway team & tagged customer in High-Value At-Risk Tier.',
+            intent: 'Payment Gateway Failure / Repeated Friction',
+            copilot: 'Agent performed exemplary de-escalation under customer stress. Bookmark as Gold Standard coaching snippet.',
+            context: 'BillPay TXN-77192, Discom: TSSPDCL, Churn Risk: Elevated'
+          }
+        ]
+      },
+      crmx: {
+        name: 'CRMX',
+        kicker: 'FiveS AI in CX Suite // AI-Native Contextual CRM',
+        headline: 'Contextual Customer Lifecycle. <span class="hl">Built for BPM.</span>',
+        tagline: 'An AI-native CRM platform that unifies customer identity, predicts support tickets before they occur, and automates resolution workflows.',
+        desc: 'Traditional enterprise CRMs were built for sales pipelines, not high-velocity customer operations. FiveS CRMX is architected from the ground up for modern enterprise BPM: providing a sub-second 360-degree customer profile, automated timeline assembly, and dynamic ticket resolution workflows.',
+        color: '#A855F7',
+        colorHex: 0xA855F7,
+        hudPulseColor: '#A855F7',
+        stats: [
+          { val: '360°', lbl: 'Customer Profile View' },
+          { val: '< 250ms', lbl: 'Record Load Latency' },
+          { val: '47%', lbl: 'Auto Ticket Resolution' },
+          { val: '100%', lbl: 'Data Sovereignty' }
+        ],
+        scenarios: [
+          {
+            user: 'Kunal Singhania (Kolkata)',
+            channel: 'CRMX Frontline Console • VIP Customer',
+            sentiment: 'VIP Gold Member (65%)',
+            sentimentClass: 'positive',
+            query: 'Looking up order history: Customer has 4 prior orders, 1 recent return, and a VIP Gold loyalty status with ₹1.2L annual spend.',
+            response: 'CRMX 360 View: Identified High-Value Gold Tier Customer. Automated Instant Refund approval rule triggered for ₹3,400.',
+            action: 'Auto-credited refund to wallet & generated VIP priority courier dispatch.',
+            intent: 'VIP Customer Retention & Priority Return Processing',
+            copilot: 'Offer concierge booking for upcoming seasonal launch.',
+            context: 'Lifetime value ₹1,24,000, 0 disputes in 2 years'
+          }
+        ]
+      },
+      smartx: {
+        name: 'SmartX',
+        kicker: 'FiveS AI in CX Suite // Autonomous Workflow Engine',
+        headline: 'Autonomous Process RPA. <span class="hl">Frontend to Backend.</span>',
+        tagline: 'Automate high-friction back-office tasks, data reconciliation, document extraction, and cross-system transactions with zero human intervention.',
+        desc: 'Customer experience does not stop at the chatbot; it fails when backend processes crawl. FiveS SmartX is an autonomous back-office automation engine that executes complex, multi-system workflows—such as loan underwriting checks, claims adjudication, and KYC verification—at machine speed with 99.9% accuracy.',
+        color: '#F59E0B',
+        colorHex: 0xF59E0B,
+        hudPulseColor: '#F59E0B',
+        stats: [
+          { val: '99.9%', lbl: 'Extraction Accuracy' },
+          { val: '18x', lbl: 'Processing Speed' },
+          { val: '74%', lbl: 'Zero-Touch Workflows' },
+          { val: '₹18 Cr+', lbl: 'Annual OPEX Saved' }
+        ],
+        scenarios: [
+          {
+            user: 'Fintech Merchant Onboarding',
+            channel: 'Automated Processing Engine • GSTN Sync',
+            sentiment: 'Automated Verified (50%)',
+            sentimentClass: 'positive',
+            query: 'Submitted GST certificate, PAN card, and 6 months bank statement for ₹25 Lakh credit line approval.',
+            response: 'SmartX Engine: GST verified with GSTN Portal. Bank statement parsed (2,410 transactions). Average Monthly Balance: ₹18.4 Lakhs. Zero bounced cheques detected.',
+            action: 'Auto-approved credit limit of ₹25,00,000 & generated digital agreement for e-signing in 74s.',
+            intent: 'Automated Merchant Underwriting & Financial Health Verification',
+            copilot: 'Process completed in 74 seconds with 100% rule compliance.',
+            context: 'GSTIN: 27AABCF1234F1Z5, Risk Score: 885/900'
+          }
+        ]
+      }
+    };
+
+    let currentProductKey = 'commx';
+    let currentScenarioIdx = 0;
+
+    function switchProduct(key) {
+      if (!PRODUCTS[key]) return;
+      currentProductKey = key;
+      const p = PRODUCTS[key];
+
+      // Update Tabs active state
+      document.querySelectorAll('.suite-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.includes(p.name));
+      });
+      document.querySelectorAll('.eco-card').forEach(card => {
+        card.classList.toggle('current', card.textContent.includes(p.name));
+      });
+
+      // Update Texts
+      document.getElementById('p-kicker').textContent = p.kicker;
+      document.getElementById('p-headline').innerHTML = p.headline;
+      document.getElementById('p-tagline').textContent = p.tagline;
+      document.getElementById('p-desc').textContent = p.desc;
+      document.getElementById('sb-title-product').textContent = p.name;
+      document.getElementById('hud-name').textContent = p.name + ' Neural Engine';
+
+      // Update Stats
+      document.getElementById('stat-1-val').textContent = p.stats[0].val;
+      document.getElementById('stat-1-lbl').textContent = p.stats[0].lbl;
+      document.getElementById('stat-2-val').textContent = p.stats[1].val;
+      document.getElementById('stat-2-lbl').textContent = p.stats[1].lbl;
+      document.getElementById('stat-3-val').textContent = p.stats[2].val;
+      document.getElementById('stat-3-lbl').textContent = p.stats[2].lbl;
+      document.getElementById('stat-4-val').textContent = p.stats[3].val;
+      document.getElementById('stat-4-lbl').textContent = p.stats[3].lbl;
+
+      // Update 3D Canvas colors
+      if (coreMesh && coreMesh.material) {
+        coreMesh.material.color.setHex(p.colorHex);
+        coreMesh.material.emissive.setHex(p.colorHex);
+      }
+      document.getElementById('hud-pulse').style.background = p.color;
+      document.getElementById('hud-pulse').style.boxShadow = '0 0 10px ' + p.color;
+
+      // Load scenario
+      loadScenario(0);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function loadScenario(idx) {
+      currentScenarioIdx = idx;
+      const p = PRODUCTS[currentProductKey];
+      const s = p.scenarios[idx] || p.scenarios[0];
+
+      // Update active pill button
+      const pills = document.querySelectorAll('.sandbox-pill-btn');
+      pills.forEach((pill, i) => pill.classList.toggle('active', i === idx));
+
+      document.getElementById('sb-user-name').textContent = s.user;
+      document.getElementById('sb-user-channel').textContent = s.channel;
+      document.getElementById('sb-user-query').textContent = s.query;
+      document.getElementById('sb-bot-response').textContent = s.response;
+      document.getElementById('sb-action-text').textContent = s.action;
+      document.getElementById('sb-intent-text').textContent = s.intent;
+      document.getElementById('sb-copilot-text').textContent = s.copilot;
+      document.getElementById('sb-context-meta').textContent = s.context;
+
+      const badge = document.getElementById('sb-sentiment-badge');
+      badge.className = 'sentiment-tag ' + s.sentimentClass;
+      badge.innerHTML = `<span class="pulse-dot" style="width:6px;height:6px;"></span><span>${s.sentiment}</span>`;
+
+      // Reset handoff
+      document.getElementById('sb-handoff-state').classList.remove('show');
+      document.getElementById('handoff-toggle-btn').textContent = 'Simulate Hot Human Handoff (<400ms)';
+    }
+
+    function toggleHandoff() {
+      const box = document.getElementById('sb-handoff-state');
+      const btn = document.getElementById('handoff-toggle-btn');
+      if (box.classList.contains('show')) {
+        box.classList.remove('show');
+        btn.textContent = 'Simulate Hot Human Handoff (<400ms)';
+      } else {
+        box.classList.add('show');
+        btn.textContent = 'Return to Autonomous Bot View';
+      }
+    }
+
+    /* ARCHITECTURE INTERACTION */
+    const ARCH_DATA = [
+      {
+        step: 'Layer 01',
+        title: 'Omnichannel Ingestion & Gateways',
+        desc: 'Captures synchronous voice streams (SIP/WebRTC) and asynchronous digital payloads (WhatsApp Cloud API, RCS, Webhooks, Mobile SDKs) into high-throughput Kafka queues with zero packet loss.',
+        protos: ['WebSockets', 'SIP / RTP', 'Apache Kafka', 'HTTPS REST'],
+        latency: '< 80ms',
+        compliance: 'TLS 1.3 & AES-256'
+      },
+      {
+        step: 'Layer 02',
+        title: 'FiveS Neural Triage & Intent Engine',
+        desc: 'Domain-trained LLMs perform intent extraction, multilingual dialect mapping, entity disambiguation, and emotional sentiment scoring in real time.',
+        protos: ['RAG Pipeline', 'Vector Embeddings', 'ASR/TTS Engine', 'NER Core'],
+        latency: '< 350ms',
+        compliance: 'PII Redaction Active'
+      },
+      {
+        step: 'Layer 03',
+        title: 'Human-in-the-Loop Co-Pilot & Supervision',
+        desc: 'Directly hooks into FiveS frontline BPM stations in Belapur & regional centers. Human specialists receive pre-composed responses and supervisor guidance.',
+        protos: ['WebRTC Audio', 'WebSocket Telemetry', 'AssistX SDK'],
+        latency: '< 400ms Handoff',
+        compliance: 'SOC 2 Type II Certified'
+      },
+      {
+        step: 'Layer 04',
+        title: 'Enterprise System of Record & Action',
+        desc: 'Commits transactional actions into core banking, order management, and CRM databases (e.g. initiating refunds, updating loan records, creating tickets).',
+        protos: ['GraphQL', 'Enterprise ESB', 'CRMX Core API', 'SAP Connector'],
+        latency: '< 180ms DB Commit',
+        compliance: 'PCI-DSS & ISO 27001'
+      }
+    ];
+
+    function switchArch(idx) {
+      document.querySelectorAll('.arch-layer-item').forEach((item, i) => {
+        item.classList.toggle('active', i === idx);
+      });
+      const d = ARCH_DATA[idx];
+      document.getElementById('arch-step-lbl').textContent = d.step + ' Inspection';
+      document.getElementById('arch-title-lbl').textContent = d.title;
+      document.getElementById('arch-desc-lbl').textContent = d.desc;
+      document.getElementById('arch-latency-lbl').textContent = d.latency;
+      document.getElementById('arch-compliance-lbl').textContent = d.compliance;
+
+      const container = document.getElementById('arch-proto-tags');
+      container.innerHTML = d.protos.map(p => `<span class="proto-tag">${p}</span>`).join('');
+    }
+
+    /* ROI CALCULATOR LOGIC */
+    let currentCurrency = 'INR';
+    function setCurrency(curr) {
+      currentCurrency = curr;
+      document.getElementById('curr-inr-btn').style.background = curr === 'INR' ? 'var(--yellow)' : 'transparent';
+      document.getElementById('curr-inr-btn').style.color = curr === 'INR' ? 'var(--navy-dark)' : '#fff';
+      document.getElementById('curr-usd-btn').style.background = curr === 'USD' ? 'var(--yellow)' : 'transparent';
+      document.getElementById('curr-usd-btn').style.color = curr === 'USD' ? 'var(--navy-dark)' : '#fff';
+      updateRoi();
+    }
+
+    function updateRoi() {
+      const vol = parseInt(document.getElementById('roi-vol-slider').value);
+      const agents = parseInt(document.getElementById('roi-agents-slider').value);
+
+      document.getElementById('roi-vol-display').textContent = vol.toLocaleString() + ' / mo';
+      document.getElementById('roi-agents-display').textContent = agents + ' Agents';
+
+      const automated = Math.round(vol * 0.58);
+      const hoursSaved = Math.round((automated * 6.5) / 60);
+      const agentEquiv = Math.round(hoursSaved / 160);
+
+      document.getElementById('roi-hours-stat').textContent = hoursSaved.toLocaleString() + ' hrs';
+
+      let savingsStr = '';
+      if (currentCurrency === 'INR') {
+        const annualINR = agentEquiv * 38000 * 12;
+        if (annualINR >= 10000000) {
+          savingsStr = '₹' + (annualINR / 10000000).toFixed(2) + ' Cr';
+        } else {
+          savingsStr = '₹' + (annualINR / 100000).toFixed(1) + ' Lakhs';
+        }
+      } else {
+        const annualUSD = agentEquiv * 2800 * 12;
+        if (annualUSD >= 1000000) {
+          savingsStr = '$' + (annualUSD / 1000000).toFixed(2) + 'M';
+        } else {
+          savingsStr = '$' + (annualUSD / 1000).toFixed(0) + 'K';
+        }
+      }
+      document.getElementById('roi-savings-stat').textContent = savingsStr;
+    }
+
+    /* MODAL LOGIC */
+    function openDemoModal() {
+      document.getElementById('modal-product-title').textContent = 'Schedule ' + PRODUCTS[currentProductKey].name + ' Walkthrough';
+      document.getElementById('demo-modal').classList.add('open');
+    }
+    function closeDemoModal() {
+      document.getElementById('demo-modal').classList.remove('open');
+    }
+    function handleDemoSubmit(e) {
+      e.preventDefault();
+      alert('Thank you! Our enterprise solution lead for ' + PRODUCTS[currentProductKey].name + ' will connect with you within 2 business hours.');
+      closeDemoModal();
+    }
+
+    function toggleMobileMenu() {
+      const nav = document.getElementById('primary-navigation');
+      if (nav.style.display === 'flex') {
+        nav.style.display = 'none';
+      } else {
+        nav.style.display = 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.position = 'absolute';
+        nav.style.top = '100%';
+        nav.style.left = '0';
+        nav.style.right = '0';
+        nav.style.background = 'var(--navy-dark)';
+        nav.style.padding = '24px';
+      }
+    }
+  </script>
+</body>
+</html>
