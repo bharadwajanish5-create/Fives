@@ -353,71 +353,7 @@
       margin: 0 auto 44px auto;
     }
 
-    /* 2. INTERACTIVE PRODUCT SIMULATOR DOCK */
-    .simulator-box {
-      background: var(--navy-mid);
-      border: 1px solid var(--navy-border);
-      border-radius: 20px;
-      padding: 24px;
-      margin-bottom: 48px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    }
-
-    .simulator-nav {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-      background: var(--navy-dark);
-      padding: 6px;
-      border-radius: 999px;
-      border: 1px solid var(--navy-border);
-      width: max-content;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .sim-tab-btn {
-      background: transparent;
-      border: none;
-      color: var(--gray-400);
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 8px 18px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .sim-tab-btn.active {
-      background: var(--yellow);
-      color: var(--navy-dark);
-      font-weight: 700;
-      box-shadow: 0 4px 14px rgba(250, 204, 44, 0.25);
-    }
-
-    .sim-tab-btn:hover:not(.active) {
-      color: #fff;
-      background: rgba(255,255,255,0.06);
-    }
-
-    .sim-display-panel {
-      background: var(--navy-card);
-      border: 1px solid var(--navy-border);
-      border-radius: 14px;
-      padding: 24px 28px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: center;
-      min-height: 180px;
-    }
+    /* 2. BENTO GRID OF CXFIRST PRODUCTS */
 
     /* 3. BENTO GRID OF CXFIRST PRODUCTS */
     .bento-grid {
@@ -837,7 +773,6 @@
       .hero-metric-strip { grid-template-columns: repeat(2, 1fr); }
       .bento-grid { grid-template-columns: 1fr; }
       .bento-card.span-2 { grid-column: span 1; }
-      .sim-display-panel { grid-template-columns: 1fr; }
       .pillars-grid { grid-template-columns: 1fr; }
       .calculator-card { grid-template-columns: 1fr; }
       .case-studies-grid { grid-template-columns: 1fr; }
@@ -943,56 +878,8 @@
         <span class="kicker">THE AI IN CX SUITE // POWERED BY CXFIRST.AI</span>
         <h2 class="h-sec">Core Platforms & Intelligent Engines</h2>
         <p class="p-sec" style="margin: 8px auto 0 auto;">
-          Click through any engine below to see live telemetries, verified business impact, and explore the dedicated product documentation on CXFirst.ai.
+          Explore the five modular AI engines powering modern enterprise customer operations. Click any platform to read full technical documentation on CXFirst.ai.
         </p>
-      </div>
-
-      <!-- INTERACTIVE PRODUCT SIMULATOR DOCK -->
-      <div class="simulator-box">
-        <div class="simulator-nav">
-          <button class="sim-tab-btn active" onclick="switchSimulator('commx', this)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            CommX
-          </button>
-          <button class="sim-tab-btn" onclick="switchSimulator('assistx', this)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            AssistX
-          </button>
-          <button class="sim-tab-btn" onclick="switchSimulator('insightx', this)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            InsightX
-          </button>
-          <button class="sim-tab-btn" onclick="switchSimulator('crmx', this)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            CrmX
-          </button>
-          <button class="sim-tab-btn" onclick="switchSimulator('smartx', this)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            SmartX
-          </button>
-        </div>
-
-        <div class="sim-display-panel" id="sim-panel">
-          <div>
-            <span class="kicker" id="sim-badge" style="font-size:10px;">VOICE & OMNICHANNEL AGENT</span>
-            <h3 style="font-size:24px;color:#fff;margin:6px 0;" id="sim-title">CommX: Conversational Voice & Chat</h3>
-            <p style="font-size:14px;color:var(--gray-300);line-height:1.55;" id="sim-desc">
-              Handles peak-hour call surges and 24/7 web inquiries with 95% natural conversation scores. Complex scenarios escalate to humans with full transcript history in &lt;400ms.
-            </p>
-          </div>
-          <div style="background:var(--navy-dark);border:1px solid var(--navy-border);border-radius:12px;padding:18px;" id="sim-interactive-visual">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-              <span style="font-size:11px;color:var(--gray-400);font-weight:700;text-transform:uppercase;">Live Telemetry Stream</span>
-              <span style="font-size:11px;color:var(--green);font-weight:700;">● Active Voice Stream</span>
-            </div>
-            <div style="font-size:12.5px;color:#fff;font-family:monospace;margin-bottom:8px;">
-              User: "I need to reschedule my delivery to tomorrow 4 PM."
-            </div>
-            <div style="font-size:12.5px;color:var(--yellow);font-family:monospace;">
-              CommX AI: "Rescheduled to Nov 25 at 4:00 PM. SMS confirmation sent." [310ms]
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- BENTO PRODUCT CARDS -->
@@ -1517,101 +1404,7 @@
       });
     })();
 
-    /* 2. INTERACTIVE SIMULATOR SWITCHER */
-    const SIMULATOR_DATA = {
-      commx: {
-        badge: 'VOICE & OMNICHANNEL AGENT',
-        title: 'CommX: Conversational Voice & Chat',
-        desc: 'Handles peak-hour call surges and 24/7 web inquiries with 95% natural conversation scores. Complex scenarios escalate to humans with full transcript history in &lt;400ms.',
-        visual: `
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-            <span style="font-size:11px;color:var(--gray-400);font-weight:700;text-transform:uppercase;">Live Telemetry Stream</span>
-            <span style="font-size:11px;color:var(--green);font-weight:700;">● Active Voice Stream</span>
-          </div>
-          <div style="font-size:12.5px;color:#fff;font-family:monospace;margin-bottom:8px;">
-            User: "I need to reschedule my delivery to tomorrow 4 PM."
-          </div>
-          <div style="font-size:12.5px;color:var(--yellow);font-family:monospace;">
-            CommX AI: "Rescheduled to Nov 25 at 4:00 PM. SMS confirmation sent." [310ms]
-          </div>
-        `
-      },
-      assistx: {
-        badge: 'FRONTLINE COPILOT',
-        title: 'AssistX: Real-Time In-Call Guidance',
-        desc: 'Listens to conversations in real time, understands customer intent, and displays the exact approved SOP step, policy, or answer directly on agent screens without manual search.',
-        visual: `
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-            <span style="font-size:11px;color:var(--gray-400);font-weight:700;text-transform:uppercase;">Copilot Guidance HUD</span>
-            <span style="font-size:11px;color:var(--yellow);font-weight:700;">Confidence: 98%</span>
-          </div>
-          <div style="font-size:12px;color:var(--gray-300);margin-bottom:6px;">Detected Intent: <b>Billing Dispute / Refund Request</b></div>
-          <div style="background:rgba(250,204,44,0.1);border-left:3px solid var(--yellow);padding:8px;font-size:12px;color:#fff;border-radius:4px;">
-            <b>Recommended Action:</b> Apply Policy Cl. 4B waiver. Customer is tier-1 loyal with zero prior complaints.
-          </div>
-        `
-      },
-      insightx: {
-        badge: '100% INTERACTION QA',
-        title: 'InsightX: Speech & Text Interaction QA',
-        desc: 'Replaces tiny 5% manual audits with automated 100% call and chat QA. Detects acoustic sentiment shifts, compliance violations, and generates structured CRM call summaries.',
-        visual: `
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-            <span style="font-size:11px;color:var(--gray-400);font-weight:700;text-transform:uppercase;">Interaction QA Radar</span>
-            <span style="font-size:11px;color:var(--blue);font-weight:700;">100% Analyzed</span>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11.5px;color:#fff;">
-            <div>Compliance Score: <b style="color:var(--green);">99.4% (Pass)</b></div>
-            <div>Acoustic Sentiment: <b style="color:var(--yellow);">Positive (+82%)</b></div>
-            <div>Resolution Status: <b style="color:var(--blue);">First-Contact (FCR)</b></div>
-            <div>Wrap-Up Time: <b style="color:var(--green);">-70% Automated</b></div>
-          </div>
-        `
-      },
-      crmx: {
-        badge: 'CONTEXTUAL CRM',
-        title: 'CrmX: AI-Native Contextual Ticketing',
-        desc: 'Brings cross-channel interaction timelines into a single view. Categorizes tickets by urgency and sentiment, dispatching tickets 3X faster to the right specialized team.',
-        visual: `
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-            <span style="font-size:11px;color:var(--gray-400);font-weight:700;text-transform:uppercase;">Omnichannel Timeline</span>
-            <span style="font-size:11px;color:var(--green);font-weight:700;">Synced</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--gray-300);">
-            <span style="background:rgba(255,255,255,0.08);padding:3px 8px;border-radius:4px;">10:04 Call</span>
-            &rarr;
-            <span style="background:rgba(255,255,255,0.08);padding:3px 8px;border-radius:4px;">10:12 WhatsApp</span>
-            &rarr;
-            <span style="background:rgba(250,204,44,0.15);color:var(--yellow);padding:3px 8px;border-radius:4px;">Resolved</span>
-          </div>
-        `
-      },
-      smartx: {
-        badge: 'WORKFLOW STP ENGINE',
-        title: 'SmartX: Back-Office Straight-Through Processing',
-        desc: 'Automates middle and back-office transactional processing—including claims adjudication, KYC validation, report generation, and automated write-backs into ERP systems.',
-        visual: `
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-            <span style="font-size:11px;color:var(--gray-400);font-weight:700;text-transform:uppercase;">STP Execution Pipeline</span>
-            <span style="font-size:11px;color:var(--yellow);font-weight:700;">85% Zero-Touch</span>
-          </div>
-          <div style="font-size:11.5px;color:#fff;line-height:1.5;">
-            Doc Intake (PDF) ➔ OCR/NLU Extraction ➔ Policy Validation ➔ Auto-Approval &amp; Write-Back in <b>4.2s</b>.
-          </div>
-        `
-      }
-    };
-
-    function switchSimulator(key, btn) {
-      document.querySelectorAll('.sim-tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const d = SIMULATOR_DATA[key];
-      document.getElementById('sim-badge').textContent = d.badge;
-      document.getElementById('sim-title').textContent = d.title;
-      document.getElementById('sim-desc').innerHTML = d.desc;
-      document.getElementById('sim-interactive-visual').innerHTML = d.visual;
-    }
-
+    
     /* 3. ROI CALCULATOR LOGIC */
     let currencyMode = 'INR';
     function setCurrency(curr) {
