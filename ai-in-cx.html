@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FiveS Digital | AI in CX Solutions - Voice AI, Chat AI, Analytics & AI-Assist</title>
-  <meta name="description" content="Transform customer experience with FiveS Digital's AI in CX solutions: Voice AI, Chat AI, Call Center Analytics & Insights, and Real-Time Agent AI-Assist. Real conversations, not robotic scripts.">
+  <title>FiveS Digital | AI in CX Solutions & Platform Ecosystem</title>
+  <meta name="description" content="Transform enterprise contact centers with FiveS Digital's AI in CX suite. Powered by CXFirst.ai intelligence—featuring CommX, AssistX, InsightX, CrmX, and SmartX.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -341,7 +341,7 @@
       50% { opacity: 0.4; transform: scale(0.8); }
     }
 
-    /* 2. CORE OFFERINGS SECTION (MATCHING FIVES LIVE SITE PILLARS) */
+    /* 2. PRODUCT SUITE SECTION (POWERED BY CXFIRST.AI) */
     .section-spacing {
       padding: 88px 0;
       position: relative;
@@ -353,16 +353,16 @@
       margin: 0 auto 52px auto;
     }
 
-    .offerings-grid {
+    .products-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 28px;
     }
 
-    .offering-card {
+    .product-card {
       background: var(--navy-mid);
       border: 1px solid var(--navy-border);
-      border-radius: 20px;
+      border-radius: 22px;
       padding: 36px 32px;
       display: flex;
       flex-direction: column;
@@ -372,7 +372,7 @@
       overflow: hidden;
     }
 
-    .offering-card::before {
+    .product-card::before {
       content: "";
       position: absolute;
       top: 0;
@@ -383,24 +383,24 @@
       transition: background 0.3s ease;
     }
 
-    .offering-card:hover {
+    .product-card:hover {
       transform: translateY(-4px);
       border-color: rgba(250, 204, 44, 0.4);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
     }
 
-    .offering-card:hover::before {
+    .product-card:hover::before {
       background: linear-gradient(90deg, var(--yellow), transparent);
     }
 
-    .offering-top {
+    .card-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
     }
 
-    .offering-icon {
+    .product-icon-wrap {
       width: 48px;
       height: 48px;
       border-radius: 12px;
@@ -412,7 +412,7 @@
       color: var(--yellow);
     }
 
-    .offering-badge {
+    .product-category-badge {
       font-size: 11px;
       font-weight: 700;
       color: var(--yellow);
@@ -423,14 +423,14 @@
       letter-spacing: 0.05em;
     }
 
-    .offering-title {
-      font-size: 26px;
+    .product-name {
+      font-size: 28px;
       color: #fff;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       letter-spacing: -0.015em;
     }
 
-    .offering-pain {
+    .product-tagline {
       font-size: 14px;
       font-weight: 600;
       color: var(--blue);
@@ -438,14 +438,22 @@
       line-height: 1.4;
     }
 
-    .offering-desc {
+    .product-pain {
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--yellow-light);
+      margin-bottom: 14px;
+      line-height: 1.45;
+    }
+
+    .product-desc {
       font-size: 14.5px;
       color: var(--gray-300);
       line-height: 1.6;
       margin-bottom: 20px;
     }
 
-    .offering-features {
+    .product-features {
       list-style: none;
       margin-bottom: 24px;
       display: flex;
@@ -453,7 +461,7 @@
       gap: 10px;
     }
 
-    .offering-features li {
+    .product-features li {
       font-size: 13.5px;
       color: var(--gray-300);
       display: flex;
@@ -462,50 +470,59 @@
       line-height: 1.45;
     }
 
-    .offering-features li svg {
+    .product-features li svg {
       color: var(--yellow);
       flex-shrink: 0;
       margin-top: 3px;
     }
 
-    .offering-footer {
+    .product-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding-top: 18px;
       border-top: 1px solid var(--navy-border);
       margin-top: auto;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .offering-stat {
+    .product-kpi {
       font-size: 12.5px;
       color: var(--gray-400);
     }
-    .offering-stat b {
+    .product-kpi b {
       color: var(--yellow);
       font-weight: 700;
     }
 
-    .btn-card-action {
+    .btn-know-more {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 700;
-      color: var(--navy-dark);
-      background: var(--yellow);
-      padding: 8px 16px;
+      color: var(--yellow);
+      text-decoration: none;
+      padding: 9px 18px;
       border-radius: 999px;
+      background: rgba(250, 204, 44, 0.1);
+      border: 1px solid rgba(250, 204, 44, 0.3);
       transition: all 0.2s ease;
-      cursor: pointer;
-      border: none;
+      white-space: nowrap;
     }
-    .btn-card-action:hover {
-      background: var(--yellow-dark);
-      transform: translateX(2px);
+    .btn-know-more:hover {
+      background: var(--yellow);
+      color: var(--navy-dark);
+      transform: translateX(3px);
+      box-shadow: 0 4px 14px rgba(250, 204, 44, 0.35);
     }
 
-    /* 3. HYBRID DELIVERY ADVANTAGE (HUMAN + AI) */
+    .product-card.span-2 {
+      grid-column: span 2;
+    }
+
+    /* 3. HYBRID DELIVERY ADVANTAGE */
     .advantage-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -680,7 +697,7 @@
       gap: 4px;
     }
 
-    /* 6. CLOSING CTA SECTION */
+    /* 6. CLOSING CTA BANNER */
     .cta-banner {
       background: radial-gradient(circle at center, rgba(250, 204, 44, 0.12) 0%, rgba(15, 27, 45, 0.95) 70%);
       border: 1px solid rgba(250, 204, 44, 0.3);
@@ -795,7 +812,8 @@
       .hero-lead { margin: 0 auto 32px auto; }
       .hero-buttons { justify-content: center; }
       .hero-metric-strip { grid-template-columns: repeat(2, 1fr); }
-      .offerings-grid { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+      .product-card.span-2 { grid-column: span 1; }
       .advantage-grid { grid-template-columns: 1fr; }
       .calculator-card { grid-template-columns: 1fr; }
       .case-studies-grid { grid-template-columns: 1fr; }
@@ -854,30 +872,30 @@
           </h1>
 
           <p class="hero-lead">
-            Your customers don't want to wait. Your agents can't memorize 500-page SOPs. FiveS Digital deploys Voice AI, 24/7 Chat AI, 100% Interaction Analytics, and Real-Time Agent Guidance to multiply contact center productivity without runaway costs.
+            Your customers don't want to wait. Your agents can't memorize 500-page SOPs. FiveS Digital deploys autonomous AI agents, real-time agent copilots, and 100% interaction analytics powered by the CXFirst.ai intelligence platform.
           </p>
 
           <div class="hero-buttons">
-            <button class="btn by" onclick="openDemoModal('AI in CX Enterprise Suite')">Schedule Product Demo</button>
-            <a href="#offerings" class="btn outline">Explore 4 Core Offerings</a>
+            <a href="#products" class="btn by">Explore AI in CX Suite</a>
+            <button class="btn outline" onclick="openDemoModal('AI in CX Enterprise Suite')">Schedule Consultation</button>
           </div>
 
           <div class="hero-metric-strip">
             <div class="metric-box">
-              <span class="metric-num">95%</span>
-              <span class="metric-lbl">Natural Conversation Score</span>
+              <span class="metric-num">&lt; 1.2s</span>
+              <span class="metric-lbl">Semantic Triage</span>
             </div>
             <div class="metric-box">
-              <span class="metric-num">87%</span>
-              <span class="metric-lbl">Faster Call Resolution</span>
+              <span class="metric-num">68%</span>
+              <span class="metric-lbl">Inbound Deflection</span>
             </div>
             <div class="metric-box">
               <span class="metric-num">100%</span>
               <span class="metric-lbl">Interaction QA Coverage</span>
             </div>
             <div class="metric-box">
-              <span class="metric-num">60%</span>
-              <span class="metric-lbl">Faster Agent Onboarding</span>
+              <span class="metric-num">99.9%</span>
+              <span class="metric-lbl">Platform SLA Uptime</span>
             </div>
           </div>
         </div>
@@ -887,206 +905,237 @@
           <canvas id="three-canvas"></canvas>
           <div class="canvas-pill">
             <span class="dot-pulse"></span>
-            <span>FiveS CX Neural Grid Active</span>
+            <span>AI in CX Neural Grid Active</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. CORE OFFERINGS (DIRECT REFERENCE FROM FIVES DIGITAL AI IN CX) -->
-  <section id="offerings" class="section-spacing" style="background: rgba(15, 27, 45, 0.4);">
+  <!-- 2. THE AI IN CX PRODUCT SUITE (POWERED BY CXFIRST.AI) -->
+  <section id="products" class="section-spacing" style="background: rgba(15, 27, 45, 0.4);">
     <div class="in">
       <div class="sec-header-center">
-        <span class="kicker">CORE CAPABILITIES</span>
-        <h2 class="h-sec">Four Pillars of FiveS AI in CX</h2>
+        <span class="kicker">THE AI IN CX SUITE // POWERED BY CXFIRST.AI</span>
+        <h2 class="h-sec">Core Platforms & Intelligent Engines</h2>
         <p class="p-sec" style="margin: 10px auto 0 auto;">
-          We're not replacing your contact center agents—we're multiplying their effectiveness. Purpose-built AI that handles volume, guides frontline specialists, and surfaces 100% operational visibility.
+          Explore the five specialized engines powering our enterprise customer operations—built to automate routine triage, eliminate wait times, and elevate human frontline specialists.
         </p>
       </div>
 
-      <div class="offerings-grid">
-        <!-- 1. VOICE AI -->
-        <div class="offering-card">
+      <div class="products-grid">
+        <!-- 1. COMMX -->
+        <div class="product-card">
           <div>
-            <div class="offering-top">
-              <div class="offering-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <span class="offering-badge">Voice & Telephony</span>
-            </div>
-
-            <h3 class="offering-title">Voice AI Solutions</h3>
-            <div class="offering-pain">"Your Customers Don't Want to Wait. Your Agents Can't Handle the Volume."</div>
-            <p class="offering-desc">
-              Peak hours hit. Call queues explode. Customers wait 8 minutes for simple questions while your best agents burn out. FiveS Voice AI Agents deliver natural, context-aware conversations that actually resolve inquiries.
-            </p>
-
-            <ul class="offering-features">
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>95% Natural Conversation Score:</b> Understands context, emotion, and intent across 30+ regional languages and dialects.</span>
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>87% Faster Resolution, 40% Transfer Reduction:</b> Direct accurate answers for appointments, orders, and routine triage.</span>
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>24/7 Concurrency Without Busy Signals:</b> Handles peak spikes and off-hours inquiries with consistent enterprise quality.</span>
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>Zero-Drop Human Escalation:</b> Complex interactions transfer seamlessly to live specialists with full transcript context in &lt;400ms.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="offering-footer">
-            <div class="offering-stat">
-              <span>Impact:</span> <b>87% Faster Resolution</b>
-            </div>
-            <button class="btn-card-action" onclick="openDemoModal('Voice AI Solutions')">
-              Schedule Walkthrough &rarr;
-            </button>
-          </div>
-        </div>
-
-        <!-- 2. CHAT AI -->
-        <div class="offering-card">
-          <div>
-            <div class="offering-top">
-              <div class="offering-icon">
+            <div class="card-top">
+              <div class="product-icon-wrap">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               </div>
-              <span class="offering-badge">24/7 Omnichannel</span>
+              <span class="product-category-badge">Voice & Omnichannel AI</span>
             </div>
 
-            <h3 class="offering-title">Chat AI Solutions</h3>
-            <div class="offering-pain">"Your Website Visitors Leave Because Nobody's There to Help."</div>
-            <p class="offering-desc">
-              Your website traffic grows 24/7, but your chat team works 9-5. When after-hours buyers get "we'll respond in 24 hours", they buy from your competitor. Chat AI turns your digital touchpoints into 24/7 conversion engines.
+            <h3 class="product-name">CommX</h3>
+            <div class="product-tagline">AI Voice & Conversational Agent Platform</div>
+            <div class="product-pain">"Your Customers Don't Want to Wait. Your Agents Can't Handle the Volume."</div>
+            <p class="product-desc">
+              Human-like voice bots and omnichannel conversational triage across WhatsApp, SIP telephony, and webchat with zero-drop human escalation in &lt;400ms. Eliminates peak-hour hold times and scales 24/7 without fatigue.
             </p>
 
-            <ul class="offering-features">
+            <ul class="product-features">
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>Instant Omnichannel Coverage:</b> Deploys natively across Website, Mobile App, WhatsApp Business, Facebook, and Instagram.</span>
+                <span><b>95% Natural Conversation Score:</b> Multi-turn understanding across 30+ regional languages with dynamic sentiment adjustments.</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>Smart Lead Qualification:</b> Asks high-intent qualifying questions, captures CRM records, and schedules sales demos directly.</span>
+                <span><b>87% Faster Resolution:</b> Direct accurate answers for appointments, order tracking, and routine FAQs without routing delays.</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>Zero Wait & Unlimited Concurrent Chats:</b> Eliminates frustrating rigid script menus; replies dynamically in milliseconds.</span>
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>40% Conversion Lift, 60% Support Cost Reduction:</b> Converts browsers to buyers while resolving routine FAQs at zero marginal cost.</span>
+                <span><b>Zero-Drop Human Escalation:</b> Seamlessly transfers complex scenarios to human specialists with complete transcript history in &lt;400ms.</span>
               </li>
             </ul>
           </div>
 
-          <div class="offering-footer">
-            <div class="offering-stat">
-              <span>Impact:</span> <b>40% Higher Conversion</b>
+          <div class="product-footer">
+            <div class="product-kpi">
+              <span>Impact:</span> <b>68% Inbound Deflection</b>
             </div>
-            <button class="btn-card-action" onclick="openDemoModal('Chat AI Solutions')">
-              Schedule Walkthrough &rarr;
-            </button>
+            <a href="https://cxfirst.ai/commx/" target="_blank" rel="noopener noreferrer" class="btn-know-more">
+              Know More &rarr;
+            </a>
           </div>
         </div>
 
-        <!-- 3. ANALYTICS & INSIGHTS -->
-        <div class="offering-card">
+        <!-- 2. ASSISTX -->
+        <div class="product-card">
           <div>
-            <div class="offering-top">
-              <div class="offering-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              </div>
-              <span class="offering-badge">100% Interaction QA</span>
-            </div>
-
-            <h3 class="offering-title">CX Analytics & Insights</h3>
-            <div class="offering-pain">"You're Managing Your Contact Center Blind."</div>
-            <p class="offering-desc">
-              QA teams manually sample only 2-5% of calls, missing the real reasons CSAT dropped or repeat contacts spiked. FiveS Call Center Analytics audits 100% of conversations in real time, converting raw audio and text into decision intelligence.
-            </p>
-
-            <ul class="offering-features">
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>100% Interaction Coverage:</b> Audits every call, chat, and email for compliance, acoustic sentiment shifts, and script adherence.</span>
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>AI-Generated Call Summaries (70% Time Saved):</b> Automated wrap-up notes synced straight into CRM; saves 30% of agent wrap-up time.</span>
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>Single Unified Platform:</b> Replaces 6 fragmented tools for coaching, reporting, and QA; slashes operational complexity 80%.</span>
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>Repeat Contacts Reduced from 1.4x to 1.1x:</b> Surfaces root-cause bottlenecks to increase customer lifetime value by 12%.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="offering-footer">
-            <div class="offering-stat">
-              <span>Impact:</span> <b>100% QA Audit Rate</b>
-            </div>
-            <button class="btn-card-action" onclick="openDemoModal('Analytics & Insights')">
-              Schedule Walkthrough &rarr;
-            </button>
-          </div>
-        </div>
-
-        <!-- 4. AI-ASSIST -->
-        <div class="offering-card">
-          <div>
-            <div class="offering-top">
-              <div class="offering-icon">
+            <div class="card-top">
+              <div class="product-icon-wrap">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </div>
-              <span class="offering-badge">Frontline Agent Copilot</span>
+              <span class="product-category-badge">Frontline Co-Pilot</span>
             </div>
 
-            <h3 class="offering-title">AI-Assist for Agents</h3>
-            <div class="offering-pain">"Your Agents Are Winging It Because They Can't Remember 500-Page SOPs."</div>
-            <p class="offering-desc">
-              Your agents aren't failing—your support system is. AI-Assist listens to active calls in real time, understands customer intent, and displays the exact approved procedure, calculation, or answer directly on the agent's screen.
+            <h3 class="product-name">AssistX</h3>
+            <div class="product-tagline">Real-Time Agent Assist Software</div>
+            <div class="product-pain">"Your Agents Are Winging It Because They Can't Remember 500-Page SOPs."</div>
+            <p class="product-desc">
+              Your agents aren't failing—your support system is. AssistX listens to active customer interactions in real time, surfaces live step-by-step recommendations, and eliminates manual knowledge base searches.
             </p>
 
-            <ul class="offering-features">
+            <ul class="product-features">
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>Live In-Call Guidance:</b> Agents see what to say while the customer is still talking; 75% reduction in manual KB searches.</span>
+                <span><b>Live In-Call Guidance:</b> Agents see the answer while the customer is still talking; cuts manual search time by 75%.</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>Automatic SOP Adherence:</b> Turns 500-page manuals into dynamic decision trees with 95% compliance guarantee.</span>
+                <span><b>Automatic SOP Adherence:</b> Converts 500-page complex manuals into dynamic visual decision trees with 95% compliance guarantee.</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>60% Faster Onboarding:</b> Cuts new hire ramp time from 4-6 weeks down to 10-12 days through real-time coaching.</span>
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><b>35% AHT Reduction + 25% FCR Lift:</b> No frantic searches or supervisor escalations; confident answers from day one.</span>
+                <span><b>60% Faster Onboarding:</b> Cuts new hire training from 4-6 weeks down to 10-12 days through continuous on-the-job AI coaching.</span>
               </li>
             </ul>
           </div>
 
-          <div class="offering-footer">
-            <div class="offering-stat">
-              <span>Impact:</span> <b>-35% Handle Time</b>
+          <div class="product-footer">
+            <div class="product-kpi">
+              <span>Impact:</span> <b>-45s Average Handle Time</b>
             </div>
-            <button class="btn-card-action" onclick="openDemoModal('AI-Assist for Agents')">
-              Schedule Walkthrough &rarr;
-            </button>
+            <a href="https://cxfirst.ai/assistx/" target="_blank" rel="noopener noreferrer" class="btn-know-more">
+              Know More &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. INSIGHTX -->
+        <div class="product-card">
+          <div>
+            <div class="card-top">
+              <div class="product-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <span class="product-category-badge">Speech & Text QA</span>
+            </div>
+
+            <h3 class="product-name">InsightX</h3>
+            <div class="product-tagline">100% Interaction Analytics & QA</div>
+            <div class="product-pain">"You're Managing Your Contact Center Blind on 5% Manual Samples."</div>
+            <p class="product-desc">
+              Replace manual sampling with automated 100% call and chat QA. Analyzes sentiment shifts, speech acoustic patterns, and compliance adherence in real time—converting raw interaction data into actionable executive insights.
+            </p>
+
+            <ul class="product-features">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><b>100% Interaction Audit Coverage:</b> Analyzes every call, chat, and email for compliance, tone, and resolution quality.</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><b>AI-Generated Call Summaries:</b> Automated structured wrap-up notes synced to CRM, saving agents 70% of documentation time.</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><b>Single Unified Platform:</b> Replaces 6 disconnected tools for coaching, reporting, and QA; slashes operational complexity by 80%.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="product-footer">
+            <div class="product-kpi">
+              <span>Impact:</span> <b>100% Audit Coverage</b>
+            </div>
+            <a href="https://cxfirst.ai/insightx/" target="_blank" rel="noopener noreferrer" class="btn-know-more">
+              Know More &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. CRMX -->
+        <div class="product-card">
+          <div>
+            <div class="card-top">
+              <div class="product-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <span class="product-category-badge">Contextual CRM</span>
+            </div>
+
+            <h3 class="product-name">CrmX</h3>
+            <div class="product-tagline">AI-Native Ticketing Software</div>
+            <div class="product-pain">"Customers Repeat Themselves 1.4 Times Because Agents Lack Context."</div>
+            <p class="product-desc">
+              Modern customer relationship and ticketing platform with auto-tagging, 360-degree customer context, and automated cross-departmental resolution routing. Brings previous omnichannel history directly into the agent viewport.
+            </p>
+
+            <ul class="product-features">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><b>Omnichannel 360° Context:</b> Unifies voice transcripts, chat threads, and email tickets into a single chronological timeline.</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><b>Intelligent SLA Routing:</b> Categorizes tickets by urgency, intent, and sentiment, dispatching tickets 3X faster to right specialists.</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><b>Reduces Repeat Inquiries to 1.1x:</b> Solves customer issues on first contact to boost customer lifetime value by 12%.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="product-footer">
+            <div class="product-kpi">
+              <span>Impact:</span> <b>3X Faster Dispatch</b>
+            </div>
+            <a href="https://cxfirst.ai/crmx/" target="_blank" rel="noopener noreferrer" class="btn-know-more">
+              Know More &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. SMARTX (SPAN 2 FULL WIDTH) -->
+        <div class="product-card span-2">
+          <div>
+            <div class="card-top">
+              <div class="product-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <span class="product-category-badge">Workflow Automation</span>
+            </div>
+
+            <h3 class="product-name">SmartX</h3>
+            <div class="product-tagline">Intelligent Back-Office Process Engine</div>
+            <div class="product-pain">"Eliminate Repetitive Middle and Back-Office Friction with Straight-Through Processing."</div>
+            <p class="product-desc">
+              SmartX automates complex middle and back-office transactional workflows—including KYC document validation, claim processing, payment reconciliations, and CRM write-backs without manual human intervention. Connects frontline interactions with automated backend execution.
+            </p>
+
+            <ul class="product-features">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><b>85% Straight-Through Processing (STP):</b> Eliminates manual data entry across PDF forms, multi-system databases, and ERP portals.</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><b>Automated Report Generation:</b> Seamlessly pulls transaction logs, reconciles mismatches, and outputs regulatory compliance files.</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><b>Rapid Enterprise Integration:</b> Deploys pre-built connectors to Salesforce, Zendesk, SAP, and core banking backends in days, not months.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="product-footer">
+            <div class="product-kpi">
+              <span>Impact:</span> <b>85% Straight-Through Processing (STP)</b>
+            </div>
+            <a href="https://cxfirst.ai/smartx/" target="_blank" rel="noopener noreferrer" class="btn-know-more">
+              Know More &rarr;
+            </a>
           </div>
         </div>
       </div>
@@ -1107,25 +1156,25 @@
       <div class="advantage-grid">
         <div class="advantage-card">
           <div class="adv-step">Pillar 01</div>
-          <h3 class="adv-title">High-Precision Automation</h3>
+          <h3 class="adv-title">CXFirst.ai Intelligence</h3>
           <p class="adv-text">
-            Voice AI and Chat AI absorb high-frequency routine transactions 24/7 across 30+ regional languages—eliminating queue wait times and protecting human specialists from repetitive fatigue.
+            Proprietary conversational NLU models tuned for multi-turn regional dialects, colloquial idioms, and complex domain vocabulary—handling routine volume 24/7 without robot-like scripts.
           </p>
         </div>
 
         <div class="advantage-card">
           <div class="adv-step">Pillar 02</div>
-          <h3 class="adv-title">Frontline Human Co-Pilot</h3>
+          <h3 class="adv-title">Human-in-the-Loop Safeguards</h3>
           <p class="adv-text">
-            When complex, sensitive, or high-value moments occur, AI-Assist equips agents with instant step-by-step guidance. Customers experience genuine human empathy backed by zero-delay technical accuracy.
+            When sensitive, high-value, or ambiguous issues arise, confidence-scored triggers escalate conversations to trained human specialists in &lt;400ms with complete context.
           </p>
         </div>
 
         <div class="advantage-card">
           <div class="adv-step">Pillar 03</div>
-          <h3 class="adv-title">100% Continuous Intelligence</h3>
+          <h3 class="adv-title">Inclusive Operations at Scale</h3>
           <p class="adv-text">
-            Analytics & Insights processes 100% of interaction telemetry. Edge cases, policy bottlenecks, and agent coaching needs are surfaced daily to continuously refine AI models and training programs.
+            FiveS operates India's first diverse and inclusive BPM centre in Navi Mumbai. Our trained team continuously refines edge cases, annotates training data, and monitors automated quality.
           </p>
         </div>
       </div>
@@ -1257,7 +1306,7 @@
           Ready to Modernize Your Contact Center?
         </h2>
         <p class="p-sec" style="margin: 0 auto 32px auto;">
-          Whether you need 24/7 conversational voice bots, real-time agent copilots, or 100% QA interaction analytics, let's design the right AI in CX blueprint for your scale.
+          Whether you need CommX for conversational voice bots, AssistX for real-time agent copilots, or InsightX for 100% QA analytics, let's design the right AI in CX blueprint for your scale.
         </p>
         <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
           <button class="btn by" onclick="openDemoModal('Complete AI in CX Platform')">Request Custom Demo</button>
@@ -1303,12 +1352,13 @@
           <input type="email" class="form-input" placeholder="e.g. john@company.com" required>
         </div>
         <div class="form-group">
-          <label>Primary Area of Interest</label>
+          <label>Primary Product of Interest</label>
           <select class="form-select" id="modal-select-interest">
-            <option value="Voice AI Solutions">Voice AI Solutions</option>
-            <option value="Chat AI Solutions">Chat AI Solutions</option>
-            <option value="CX Analytics & Insights">CX Analytics & Insights</option>
-            <option value="AI-Assist for Agents">AI-Assist for Agents</option>
+            <option value="CommX - Conversational Voice & Chat">CommX - Conversational Voice & Chat</option>
+            <option value="AssistX - Real-Time Agent Guidance">AssistX - Real-Time Agent Guidance</option>
+            <option value="InsightX - 100% Interaction Analytics & QA">InsightX - 100% Interaction Analytics & QA</option>
+            <option value="CrmX - AI-Native Ticketing & Context">CrmX - AI-Native Ticketing & Context</option>
+            <option value="SmartX - Intelligent Back-Office STP">SmartX - Intelligent Back-Office STP</option>
             <option value="Full AI in CX Suite">Full AI in CX Suite</option>
           </select>
         </div>
