@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FiveS Digital | CommX - AI in CX Flagship Platform</title>
-  <meta name="description" content="FiveS CommX transforms enterprise customer conversations into a unified omnichannel neural grid with real-time sentiment telemetry and zero-drop human escalation.">
+  <title>FiveS Digital | AI in CX Solutions & Platform Ecosystem</title>
+  <meta name="description" content="Transform enterprise contact centers with FiveS Digital's AI in CX suite. Powered by CXFirst.ai intelligence—featuring CommX, AssistX, InsightX, CrmX, and SmartX.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -21,14 +21,11 @@
       --surface: #0F1B2D;   /* Brand Navy #0F1B2D */
       --surface2: #16253B;  /* #16253B */
       --surface3: #1B2D47;  /* #1B2D47 */
-      --surface4: #24395A;
       --acc: #FACC2C;       /* Brand Yellow */
       --sun: #FACC2C;
       --sun-deep: #E9A800;
-      --sun-soft: #FFE68A;
       --sky: #7CC6FF;
       --leaf: #3DDC97;
-      --ember: #FF7A45;
       --border-subtle: rgba(255, 255, 255, 0.1);
       --border-card: rgba(255, 255, 255, 0.15);
     }
@@ -89,7 +86,7 @@
     }
 
     .sec-desc {
-      margin-top: 14px;
+      margin-top: 12px;
       max-width: 640px;
       font-size: 15.5px;
       line-height: 1.6;
@@ -247,27 +244,11 @@
       gap: 16px;
     }
 
-    .link-return {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--sun);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: opacity 0.2s;
-    }
-
-    .link-return:hover {
-      opacity: 0.8;
-      text-decoration: underline;
-    }
-
-    /* HERO SECTION */
+    /* HERO */
     .hero {
       position: relative;
-      padding-top: 140px;
-      padding-bottom: 70px;
+      padding-top: 144px;
+      padding-bottom: 72px;
       overflow: hidden;
     }
 
@@ -300,7 +281,7 @@
       margin-bottom: 44px;
     }
 
-    /* HERO STATS (MATCHING HOMEPAGE METRICS CARD) */
+    /* HERO STATS */
     .hero-metric-strip {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -380,7 +361,7 @@
       50% { opacity: 0.4; transform: scale(0.8); }
     }
 
-    /* SECTION PADDING */
+    /* SECTIONS */
     section {
       padding: 88px 0;
       position: relative;
@@ -388,225 +369,46 @@
 
     .sec-header {
       text-align: center;
-      max-width: 660px;
-      margin: 0 auto 48px auto;
+      max-width: 680px;
+      margin: 0 auto 52px auto;
     }
 
-    /* SANDBOX TERMINAL */
-    .sandbox-wrap {
-      background: var(--surface2);
-      border: 1px solid var(--border-card);
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(16px);
-    }
-
-    .sandbox-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 24px;
-      border-bottom: 1px solid var(--border-subtle);
-      background: rgba(15, 27, 45, 0.6);
-    }
-
-    .channel-tabs {
-      display: flex;
-      gap: 8px;
-    }
-
-    .channel-tab {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
-      padding: 7px 15px;
-      border-radius: 9999px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .channel-tab.active, .channel-tab:hover {
-      background: var(--sun);
-      color: var(--surface);
-      border-color: var(--sun);
-    }
-
-    .sandbox-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .chat-pane {
-      padding: 28px;
-      border-right: 1px solid var(--border-subtle);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: rgba(10, 19, 34, 0.35);
-      min-height: 340px;
-    }
-
-    .bubble-user {
-      align-self: flex-end;
-      background: rgba(250, 204, 44, 0.15);
-      border: 1px solid rgba(250, 204, 44, 0.3);
-      color: var(--fg);
-      padding: 12px 18px;
-      border-radius: 16px;
-      border-bottom-right-radius: 4px;
-      font-size: 14px;
-      max-width: 85%;
-      margin-bottom: 14px;
-    }
-
-    .bubble-ai {
-      align-self: flex-start;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border-subtle);
-      color: var(--muted);
-      padding: 12px 18px;
-      border-radius: 16px;
-      border-bottom-left-radius: 4px;
-      font-size: 14px;
-      max-width: 85%;
-    }
-
-    .chat-bar {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .chat-input {
-      flex: 1;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 9999px;
-      padding: 10px 18px;
-      color: var(--fg);
-      font-size: 13.5px;
-      outline: none;
-    }
-
-    .chat-input:focus {
-      border-color: var(--sun);
-    }
-
-    .telemetry-pane {
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .telemetry-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .telemetry-tag {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--sky);
-      background: rgba(124, 198, 255, 0.15);
-      border: 1px solid rgba(124, 198, 255, 0.3);
-      padding: 3px 10px;
-      border-radius: 9999px;
-    }
-
-    /* 4-STAGE PIPELINE */
-    .pipe-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .pipe-card {
-      background: var(--surface2);
-      border: 1px solid var(--border-card);
-      border-radius: 20px;
-      padding: 26px 22px;
-      transition: all 0.25s ease;
-    }
-
-    .pipe-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--sun);
-    }
-
-    .pipe-stage {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      color: var(--sun);
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .pipe-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--fg);
-      margin-bottom: 8px;
-    }
-
-    .pipe-desc {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.5;
-      margin-bottom: 14px;
-    }
-
-    .pipe-chip {
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--sky);
-      background: rgba(124, 198, 255, 0.1);
-      padding: 3px 10px;
-      border-radius: 6px;
-      display: inline-block;
-    }
-
-    /* 4 CAPABILITY CARDS */
-    .feature-grid {
+    /* PRODUCT SUITE SECTION (POWERED BY CXFIRST.AI) */
+    .products-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 24px;
     }
 
-    .feature-card {
+    .product-card {
       background: var(--surface2);
       border: 1px solid var(--border-card);
       border-radius: 22px;
-      padding: 32px;
-      transition: all 0.25s ease;
+      padding: 34px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
     }
 
-    .feature-card:hover {
-      transform: translateY(-3px);
+    .product-card:hover {
+      transform: translateY(-4px);
       border-color: rgba(250, 204, 44, 0.4);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
     }
 
-    .feature-top {
+    .card-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
-    .feature-icon-box {
-      width: 44px;
-      height: 44px;
+    .product-icon-wrap {
+      width: 46px;
+      height: 46px;
       border-radius: 12px;
       background: rgba(250, 204, 44, 0.12);
       border: 1px solid rgba(250, 204, 44, 0.3);
@@ -616,96 +418,132 @@
       color: var(--sun);
     }
 
-    .feature-tag {
+    .product-category-badge {
       font-size: 11px;
       font-weight: 700;
       color: var(--sun);
       background: rgba(250, 204, 44, 0.1);
-      padding: 3px 10px;
+      padding: 4px 10px;
       border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
-    .feature-title {
-      font-size: 21px;
-      font-weight: 600;
+    .product-name {
+      font-family: "PT Serif", Georgia, serif;
+      font-size: 26px;
+      font-weight: 400;
       color: var(--fg);
-      margin-bottom: 10px;
-      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+      letter-spacing: -0.015em;
     }
 
-    .feature-desc {
+    .product-tagline {
       font-size: 14.5px;
-      color: var(--muted);
-      line-height: 1.55;
-      margin-bottom: 20px;
+      font-weight: 600;
+      color: var(--sky);
+      margin-bottom: 12px;
     }
 
-    .feature-kpi {
+    .product-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .product-footer {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--fg);
-      padding-top: 14px;
+      justify-content: space-between;
+      padding-top: 16px;
       border-top: 1px solid var(--border-subtle);
+      margin-top: auto;
     }
 
-    .feature-kpi b {
+    .product-kpi {
+      font-size: 12.5px;
+      color: var(--muted2);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .product-kpi b {
       color: var(--sun);
+      font-weight: 700;
     }
 
-    /* ROI CALCULATOR */
-    .roi-box {
+    .btn-know-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--sun);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      background: rgba(250, 204, 44, 0.1);
+      border: 1px solid rgba(250, 204, 44, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .btn-know-more:hover {
+      background: var(--sun);
+      color: var(--surface);
+      transform: translateX(3px);
+      box-shadow: 0 4px 14px rgba(250, 204, 44, 0.3);
+    }
+
+    /* FULL-WIDTH CARD FOR SMARTX */
+    .product-card.span-2 {
+      grid-column: span 2;
+    }
+
+    /* HYBRID OPERATING MODEL (3 PILLARS) */
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .pillar-card {
       background: var(--surface2);
       border: 1px solid var(--border-card);
-      border-radius: 22px;
-      padding: 40px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
-      align-items: center;
+      border-radius: 20px;
+      padding: 30px 24px;
+      transition: all 0.25s ease;
     }
 
-    input[type=range] {
-      width: 100%;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 9999px;
-      outline: none;
-      -webkit-appearance: none;
-      appearance: none;
+    .pillar-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--sun);
     }
 
-    input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--sun);
-      cursor: pointer;
-      box-shadow: 0 0 12px var(--sun);
-    }
-
-    .roi-display {
-      background: rgba(15, 27, 45, 0.7);
-      border: 1px solid rgba(250, 204, 44, 0.25);
-      border-radius: 18px;
-      padding: 28px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .roi-num {
-      font-family: "PT Serif", Georgia, serif;
-      font-size: 44px;
+    .pillar-num {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
       color: var(--sun);
-      line-height: 1.1;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
-    /* CTA BANNER */
+    .pillar-title {
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 8px;
+    }
+
+    .pillar-text {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* CLOSING CTA */
     .cta-card {
       background: var(--surface2);
       border: 1px solid rgba(250, 204, 44, 0.3);
@@ -760,26 +598,17 @@
       .hero-metric-strip {
         grid-template-columns: repeat(2, 1fr);
       }
-      .sandbox-grid {
+      .products-grid {
         grid-template-columns: 1fr;
       }
-      .pipe-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .product-card.span-2 {
+        grid-column: span 1;
       }
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
-      .roi-box {
+      .pillar-grid {
         grid-template-columns: 1fr;
       }
       .nav-menu {
         display: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .pipe-grid {
-        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -798,7 +627,7 @@
         <nav class="nav-menu">
           <a class="nav-item" href="https://bharadwajanish5-create.github.io/Fives-3D-Design-/#about">About Us</a>
           <a class="nav-item" href="https://bharadwajanish5-create.github.io/Fives-3D-Design-/#services">CX</a>
-          <a class="nav-item active" href="commx.html">AI in CX</a>
+          <a class="nav-item active" href="ai-in-cx.html">AI in CX</a>
           <a class="nav-item" href="https://bharadwajanish5-create.github.io/Fives-3D-Design-/#services">AI &amp; Data</a>
           <a class="nav-item" href="https://bharadwajanish5-create.github.io/Fives-3D-Design-/#industries">Industries</a>
           <a class="nav-item" href="https://bharadwajanish5-create.github.io/Fives-3D-Design-/#workplace">Our People</a>
@@ -812,33 +641,33 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- 1. HERO SECTION -->
   <section class="hero">
     <div class="wrap">
       <div class="hero-grid">
         <div>
           <span class="eyebrow">
             <span class="dot-pulse" style="width:6px;height:6px;background:var(--sun);box-shadow:0 0 8px var(--sun);"></span>
-            AI IN CX // COMMX FLAGSHIP
+            FIVES DIGITAL // AI IN CX
           </span>
 
           <h1 class="h-display">
-            Intelligent Omnichannel Conversations. <span class="accent">Unified at Scale.</span>
+            Intelligent AI in CX. <span class="accent">Human-Led. Scalable.</span>
           </h1>
 
           <p class="hero-lead">
-            Orchestrate WhatsApp, SIP voice, and web chat into an empathy-driven neural grid with zero-drop human escalation in &lt;400ms.
+            Empower enterprise contact centers with autonomous AI agents, frontline copilot assistance, and real-time interaction analytics.
           </p>
 
           <div class="hero-buttons">
-            <a href="#sandbox" class="btn-sun">Launch Simulator</a>
-            <a href="#architecture" class="btn-ghost">Explore Architecture</a>
+            <a href="#products" class="btn-sun">Explore AI in CX Suite</a>
+            <a href="https://bharadwajanish5-create.github.io/Fives-3D-Design-/#contact" class="btn-ghost">Schedule Consultation</a>
           </div>
 
           <div class="hero-metric-strip">
             <div class="metric-box">
               <span class="metric-num">&lt; 1.2s</span>
-              <span class="metric-lbl">Intent Triage</span>
+              <span class="metric-lbl">Semantic Triage</span>
             </div>
             <div class="metric-box">
               <span class="metric-num">68%</span>
@@ -846,248 +675,205 @@
             </div>
             <div class="metric-box">
               <span class="metric-num">14+</span>
-              <span class="metric-lbl">Languages Handled</span>
+              <span class="metric-lbl">Vernacular Languages</span>
             </div>
             <div class="metric-box">
-              <span class="metric-num">&lt; 400ms</span>
-              <span class="metric-lbl">Co-Pilot Escalation</span>
+              <span class="metric-num">99.9%</span>
+              <span class="metric-lbl">Platform SLA Uptime</span>
             </div>
           </div>
         </div>
 
-        <!-- 3D Canvas -->
+        <!-- 3D WebGL Neural Core Canvas -->
         <div class="canvas-box">
           <canvas id="three-canvas"></canvas>
           <div class="canvas-pill">
             <span class="dot-pulse"></span>
-            <span>CommX Neural Core Online</span>
+            <span>AI in CX Neural Grid Active</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. INTERACTIVE SANDBOX -->
-  <section id="sandbox" style="background: rgba(15, 27, 45, 0.5);">
+  <!-- 2. DEDICATED PRODUCTS SECTION (POWERED BY CXFIRST.AI) -->
+  <section id="products" style="background: rgba(15, 27, 45, 0.5);">
     <div class="wrap">
       <div class="sec-header">
-        <span class="eyebrow">LIVE OPERATIONAL SANDBOX</span>
-        <h2 class="sec-title">Test Real-Time Semantic Triage</h2>
-        <p class="sec-desc" style="margin: 10px auto 0 auto;">Simulate how CommX classifies customer queries, gauges live sentiment, and assists frontline specialists.</p>
+        <span class="eyebrow">THE AI IN CX SUITE</span>
+        <h2 class="sec-title">Core Platforms &amp; Intelligent Engines</h2>
+        <p class="sec-desc" style="margin: 10px auto 0 auto;">Explore the specialized platforms powering our enterprise customer operations, built to automate routine triage and elevate human specialists.</p>
       </div>
 
-      <div class="sandbox-wrap">
-        <div class="sandbox-header">
-          <div class="channel-tabs">
-            <button class="channel-tab active" onclick="setScenario('bfsi', this)">WhatsApp / BFSI</button>
-            <button class="channel-tab" onclick="setScenario('ecommerce', this)">Voice / E-Commerce</button>
-            <button class="channel-tab" onclick="setScenario('logistics', this)">Chat / Logistics</button>
+      <div class="products-grid">
+        <!-- 1. COMMX -->
+        <div class="product-card">
+          <div>
+            <div class="card-top">
+              <div class="product-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <span class="product-category-badge">Voice &amp; Omnichannel AI</span>
+            </div>
+            <h3 class="product-name">CommX</h3>
+            <div class="product-tagline">AI Voice &amp; Conversational Agent Platform</div>
+            <p class="product-desc">
+              Human-like voice bots and omnichannel conversational triage across WhatsApp, SIP telephony, and webchat with zero-drop human escalation in &lt;400ms.
+            </p>
           </div>
-          <div style="font-size:12px;font-weight:600;color:var(--leaf);display:flex;align-items:center;gap:6px;">
-            <span class="dot-pulse"></span>
-            <span>Active Session</span>
+          <div class="product-footer">
+            <div class="product-kpi">
+              <span>Impact:</span> <b>68% Inbound Deflection</b>
+            </div>
+            <a href="https://cxfirst.ai/commx/" target="_blank" rel="noopener noreferrer" class="btn-know-more">
+              Know More &rarr;
+            </a>
           </div>
         </div>
 
-        <div class="sandbox-grid">
-          <div class="chat-pane">
-            <div>
-              <div class="bubble-user" id="userMsg">
-                "Hi, I received an SMS that my loan was approved, but my disbursal is still pending. Can you check?"
+        <!-- 2. ASSISTX -->
+        <div class="product-card">
+          <div>
+            <div class="card-top">
+              <div class="product-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </div>
-              <div class="bubble-ai" id="aiMsg">
-                "Hello Rohit! I've verified your KYC documents. Your loan of ₹2,50,000 has cleared final underwriting and is scheduled for NEFT release within 45 minutes."
-              </div>
+              <span class="product-category-badge">Frontline Co-Pilot</span>
             </div>
-
-            <div class="chat-bar">
-              <input type="text" class="chat-input" id="simInput" value="Can I split my first EMI into two cycles?" placeholder="Type customer query to simulate...">
-              <button class="btn-sun" onclick="simulateQuery()" style="padding:10px 18px;font-size:13px;">Simulate</button>
-            </div>
+            <h3 class="product-name">AssistX</h3>
+            <div class="product-tagline">Real-Time Agent Assist Software</div>
+            <p class="product-desc">
+              Empower frontline human specialists with live in-call recommendations, real-time knowledge base lookups, and automated post-interaction summaries.
+            </p>
           </div>
-
-          <div class="telemetry-pane">
-            <div style="display:flex;flex-direction:column;gap:16px;">
-              <div class="telemetry-row">
-                <span style="font-size:13px;color:var(--muted2);">Detected Intent</span>
-                <span style="font-size:13.5px;font-weight:600;color:var(--fg);" id="intentVal">Disbursal Verification</span>
-              </div>
-              <div class="telemetry-row">
-                <span style="font-size:13px;color:var(--muted2);">Triage Latency</span>
-                <span class="telemetry-tag">840ms</span>
-              </div>
-              <div class="telemetry-row">
-                <span style="font-size:13px;color:var(--muted2);">Sentiment Index</span>
-                <span style="font-size:12px;font-weight:700;color:var(--sun);" id="sentimentBadge">Neutral (0.78)</span>
-              </div>
+          <div class="product-footer">
+            <div class="product-kpi">
+              <span>Impact:</span> <b>-45s Average Handle Time</b>
             </div>
+            <a href="https://cxfirst.ai/assistx/" target="_blank" rel="noopener noreferrer" class="btn-know-more">
+              Know More &rarr;
+            </a>
+          </div>
+        </div>
 
-            <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border-subtle);border-radius:12px;padding:14px;">
-              <div style="font-size:11px;font-weight:800;color:var(--sun);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Co-Pilot Recommendation</div>
-              <div style="font-size:13px;color:var(--muted);" id="copilotText">
-                "Context preserved. Suggest offering the flexible EMI calendar schedule."
+        <!-- 3. INSIGHTX -->
+        <div class="product-card">
+          <div>
+            <div class="card-top">
+              <div class="product-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
+              <span class="product-category-badge">Speech &amp; Text QA</span>
             </div>
+            <h3 class="product-name">InsightX</h3>
+            <div class="product-tagline">100% Interaction Analytics &amp; QA</div>
+            <p class="product-desc">
+              Replace manual sampling with automated 100% call and chat QA. Analyzes sentiment shifts, speech acoustic patterns, and compliance adherence in real time.
+            </p>
+          </div>
+          <div class="product-footer">
+            <div class="product-kpi">
+              <span>Impact:</span> <b>100% Audit Coverage</b>
+            </div>
+            <a href="https://cxfirst.ai/insightx/" target="_blank" rel="noopener noreferrer" class="btn-know-more">
+              Know More &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. CRMX -->
+        <div class="product-card">
+          <div>
+            <div class="card-top">
+              <div class="product-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <span class="product-category-badge">Contextual CRM</span>
+            </div>
+            <h3 class="product-name">CrmX</h3>
+            <div class="product-tagline">AI-Native Ticketing Software</div>
+            <p class="product-desc">
+              Modern customer relationship and ticketing platform with auto-tagging, 360-degree customer context, and automated cross-departmental resolution routing.
+            </p>
+          </div>
+          <div class="product-footer">
+            <div class="product-kpi">
+              <span>Impact:</span> <b>3X Faster Dispatch</b>
+            </div>
+            <a href="https://cxfirst.ai/crmx/" target="_blank" rel="noopener noreferrer" class="btn-know-more">
+              Know More &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. SMARTX (OPTIONAL 5TH COMPANION) -->
+        <div class="product-card span-2">
+          <div>
+            <div class="card-top">
+              <div class="product-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <span class="product-category-badge">Workflow Automation</span>
+            </div>
+            <h3 class="product-name">SmartX</h3>
+            <div class="product-tagline">Intelligent Back-Office Process Engine</div>
+            <p class="product-desc">
+              Automates complex middle and back-office transactional workflows—including KYC document validation, claim processing, payment reconciliations, and CRM write-backs without human intervention.
+            </p>
+          </div>
+          <div class="product-footer">
+            <div class="product-kpi">
+              <span>Impact:</span> <b>85% Straight-Through Processing (STP)</b>
+            </div>
+            <a href="https://cxfirst.ai/smartx/" target="_blank" rel="noopener noreferrer" class="btn-know-more">
+              Know More &rarr;
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. ARCHITECTURE PIPELINE -->
-  <section id="architecture">
-    <div class="wrap">
-      <div class="sec-header">
-        <span class="eyebrow">UNIFIED ARCHITECTURE</span>
-        <h2 class="sec-title">The 4-Stage Operational Pipeline</h2>
-        <p class="sec-desc" style="margin: 10px auto 0 auto;">From initial touchpoint to verified enterprise record in milliseconds.</p>
-      </div>
-
-      <div class="pipe-grid">
-        <div class="pipe-card">
-          <div class="pipe-stage">Stage 01</div>
-          <div class="pipe-title">Ingestion</div>
-          <div class="pipe-desc">Normalizes inbound SIP voice, WhatsApp Cloud, RCS, and webhooks into a unified stream.</div>
-          <span class="pipe-chip">14+ Channels</span>
-        </div>
-
-        <div class="pipe-card">
-          <div class="pipe-stage">Stage 02</div>
-          <div class="pipe-title">Neural Triage</div>
-          <div class="pipe-desc">Extracts intents, language dialect, and customer frustration vectors with low-latency NLU.</div>
-          <span class="pipe-chip">&lt; 1.2s Latency</span>
-        </div>
-
-        <div class="pipe-card">
-          <div class="pipe-stage">Stage 03</div>
-          <div class="pipe-title">Co-Pilot &amp; Escalate</div>
-          <div class="pipe-desc">Resolves tier-1 queries autonomously or hot-transfers full context to live FiveS specialists.</div>
-          <span class="pipe-chip">&lt; 400ms Handoff</span>
-        </div>
-
-        <div class="pipe-card">
-          <div class="pipe-stage">Stage 04</div>
-          <div class="pipe-title">Core Sync</div>
-          <div class="pipe-desc">Writes auditable conversation logs and dispositions directly to Salesforce, Zoho, or Zendesk.</div>
-          <span class="pipe-chip">100% CRM Sync</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. CAPABILITIES (4 CARDS) -->
-  <section style="background: rgba(15, 27, 45, 0.5);">
-    <div class="wrap">
-      <div class="sec-header">
-        <span class="eyebrow">CAPABILITIES</span>
-        <h2 class="sec-title">Enterprise-Grade Triage Engine</h2>
-        <p class="sec-desc" style="margin: 10px auto 0 auto;">Designed for mission-critical enterprise customer operations.</p>
-      </div>
-
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div>
-            <div class="feature-top">
-              <div class="feature-icon-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              </div>
-              <span class="feature-tag">Omnichannel</span>
-            </div>
-            <div class="feature-title">Unified Conversation Threading</div>
-            <div class="feature-desc">Customer journeys remain continuous. Start on WhatsApp, escalate to Voice, and follow up over Email without repeating context.</div>
-          </div>
-          <div class="feature-kpi">
-            <b>100%</b> Context retention across channel switches
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div>
-            <div class="feature-top">
-              <div class="feature-icon-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <span class="feature-tag">Zero-Drop</span>
-            </div>
-            <div class="feature-title">Sub-400ms Human Escalation</div>
-            <div class="feature-desc">When emotion drops or complex exceptions arise, CommX seamlessly routes the interaction to FiveS certified specialists.</div>
-          </div>
-          <div class="feature-kpi">
-            <b>&lt; 400ms</b> Hot-handoff without queue abandonment
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div>
-            <div class="feature-top">
-              <div class="feature-icon-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              </div>
-              <span class="feature-tag">Real-Time</span>
-            </div>
-            <div class="feature-title">Sentiment &amp; Frustration Radar</div>
-            <div class="feature-desc">Acoustic and lexical telemetry tracks customer pitch, tone shifts, and keyword triggers to de-escalate interactions before friction mounts.</div>
-          </div>
-          <div class="feature-kpi">
-            <b>+32%</b> First-call de-escalation resolution rate
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div>
-            <div class="feature-top">
-              <div class="feature-icon-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              </div>
-              <span class="feature-tag">Security</span>
-            </div>
-            <div class="feature-title">Banking-Grade Security &amp; Sync</div>
-            <div class="feature-desc">ISO 27001, SOC-2 Type II, DPDP, and GDPR compliant. Real-time PII tokenization protects customer data across all interaction channels.</div>
-          </div>
-          <div class="feature-kpi">
-            <b>0%</b> PII storage leak risk across CRM writebacks
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. OPEX CALCULATOR -->
+  <!-- 3. THE FIVES OPERATING ADVANTAGE -->
   <section>
     <div class="wrap">
-      <div class="roi-box">
-        <div>
-          <span class="eyebrow">INTERACTIVE ROI CALCULATOR</span>
-          <h3 class="sec-title" style="margin-top:6px;font-size:26px;">Estimate Your Operational Savings</h3>
-          <p class="sec-desc" style="font-size:14px;margin-top:8px;">Adjust monthly interaction volume to calculate projected operational efficiency.</p>
+      <div class="sec-header">
+        <span class="eyebrow">HYBRID DELIVERY PHILOSOPHY</span>
+        <h2 class="sec-title">Technology Powered. Human Perfected.</h2>
+        <p class="sec-desc" style="margin: 10px auto 0 auto;">How FiveS blends cutting-edge AI architectures with world-class operational talent.</p>
+      </div>
 
-          <div style="margin-top:28px;">
-            <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
-              <span style="font-size:13.5px;color:var(--muted2);">Monthly Interaction Volume</span>
-              <span style="font-size:16px;font-weight:700;color:var(--sun);" id="volLabel">250,000</span>
-            </div>
-            <input type="range" id="volSlider" min="25000" max="1000000" step="25000" value="250000" oninput="updateCalc()">
-          </div>
+      <div class="pillar-grid">
+        <div class="pillar-card">
+          <div class="pillar-num">Pillar 01</div>
+          <div class="pillar-title">CXFirst.ai Intelligence</div>
+          <div class="pillar-text">Proprietary NLU models tuned for multi-turn Indian dialects, regional idioms, and complex domain vocabulary.</div>
         </div>
 
-        <div class="roi-display">
-          <span style="font-size:12px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:0.08em;">Estimated Annual Impact</span>
-          <span class="roi-num" id="saveNum">₹ 1.8 Cr</span>
-          <span style="font-size:13px;color:var(--muted);" id="hrsSub">~ 112,000 Agent Hours Reclaimed</span>
+        <div class="pillar-card">
+          <div class="pillar-num">Pillar 02</div>
+          <div class="pillar-title">Certified Human Specialists</div>
+          <div class="pillar-text">When empathy or exceptions are required, interactions seamlessly transition to certified specialists in Navi Mumbai and global centers.</div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-num">Pillar 03</div>
+          <div class="pillar-title">Enterprise Security &amp; Compliance</div>
+          <div class="pillar-text">ISO 27001, SOC-2 Type II, DPDP, and GDPR compliant architectures with real-time PII tokenization on every stream.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. CLOSING CTA -->
+  <!-- 4. CLOSING CTA -->
   <section style="padding-bottom: 100px;">
     <div class="wrap">
       <div class="cta-card">
-        <h2 class="h-display" style="font-size:clamp(30px, 4vw, 42px);margin-bottom:14px;">Deploy CommX on Your Operations</h2>
-        <p class="sec-desc" style="margin:0 auto 32px auto;">Join premier enterprise brands delivering human-led, AI-backed customer experience.</p>
+        <h2 class="h-display" style="font-size:clamp(30px, 4vw, 42px);margin-bottom:14px;">Elevate Your Customer Operations</h2>
+        <p class="sec-desc" style="margin:0 auto 32px auto;">Schedule a strategic consultation to discover how our AI in CX ecosystem can scale your business.</p>
         <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-          <a class="btn-sun" href="https://bharadwajanish5-create.github.io/Fives-3D-Design-/#contact">Schedule a Live Demo</a>
-          <a class="btn-ghost" href="#sandbox">Try Interactive Sandbox</a>
+          <a class="btn-sun" href="https://bharadwajanish5-create.github.io/Fives-3D-Design-/#contact">Schedule a Consultation</a>
+          <a class="btn-ghost" href="https://cxfirst.ai/products/" target="_blank" rel="noopener noreferrer">Explore CXFirst.ai Platform &rarr;</a>
         </div>
       </div>
     </div>
@@ -1101,7 +887,7 @@
         <div class="footer-links">
           <a href="https://bharadwajanish5-create.github.io/Fives-3D-Design-/#about">About Us</a>
           <a href="https://bharadwajanish5-create.github.io/Fives-3D-Design-/#services">CX</a>
-          <a href="commx.html">CommX</a>
+          <a href="ai-in-cx.html">AI in CX</a>
           <a href="https://bharadwajanish5-create.github.io/Fives-3D-Design-/#workplace">Our People</a>
           <a href="https://bharadwajanish5-create.github.io/Fives-3D-Design-/#contact">Contact</a>
         </div>
@@ -1109,7 +895,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPT -->
+  <!-- 3D NEURAL CANVAS SCRIPT -->
   <script>
     let scene, camera, renderer, coreMesh, haloMesh, satellitesGroup;
 
@@ -1149,7 +935,7 @@
       haloMesh = new THREE.Mesh(haloGeom, haloMat);
       scene.add(haloMesh);
 
-      // Orbiting Satellites Group
+      // Orbiting Satellites Group (CommX, AssistX, InsightX, CrmX, SmartX)
       satellitesGroup = new THREE.Group();
       const nodeCount = 5;
       for (let i = 0; i < nodeCount; i++) {
@@ -1193,63 +979,6 @@
     }
 
     window.addEventListener('DOMContentLoaded', initThree);
-
-    /* SANDBOX SCENARIOS DATA */
-    const scenarios = {
-      bfsi: {
-        user: '"Hi, I received an SMS that my loan was approved, but my disbursal is still pending. Can you check?"',
-        ai: '"Hello Rohit! I\'ve verified your KYC documents. Your loan of ₹2,50,000 has cleared final underwriting and is scheduled for NEFT release within 45 minutes."',
-        intent: 'Disbursal Verification',
-        sentiment: 'Neutral (0.78)',
-        copilot: '"Context preserved. Suggest offering the flexible EMI calendar schedule."'
-      },
-      ecommerce: {
-        user: '"My package was marked delivered yesterday, but our security desk hasn\'t received anything."',
-        ai: '"I apologize for the confusion, Priya. GPS courier logs confirm the drop was near Gate 2. I have dispatched an emergency re-verification task to the courier lead."',
-        intent: 'Order Non-Delivery (NDR)',
-        sentiment: 'Frustrated (0.42)',
-        copilot: '"Priority trigger: Escalate to FiveS Logistics Specialist for immediate courier callback."'
-      },
-      logistics: {
-        user: '"Can I change my delivery address to our corporate office before 4 PM today?"',
-        ai: '"Certainly! I have updated the route to BKC Tower, 4th Floor. Your dispatch agent has acknowledged the revised pin."',
-        intent: 'In-Transit Route Revision',
-        sentiment: 'Positive (0.91)',
-        copilot: '"Action complete. SMS tracking link sent to verified mobile."'
-      }
-    };
-
-    function setScenario(key, btn) {
-      document.querySelectorAll('.channel-tab').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const s = scenarios[key];
-      document.getElementById('userMsg').textContent = s.user;
-      document.getElementById('aiMsg').textContent = s.ai;
-      document.getElementById('intentVal').textContent = s.intent;
-      document.getElementById('sentimentBadge').textContent = s.sentiment;
-      document.getElementById('copilotText').textContent = s.copilot;
-    }
-
-    function simulateQuery() {
-      const input = document.getElementById('simInput');
-      if (!input.value.trim()) return;
-      document.getElementById('userMsg').textContent = `"${input.value}"`;
-      document.getElementById('aiMsg').textContent = '"Analyzing sentiment and routing via CommX neural grid..."';
-      setTimeout(() => {
-        document.getElementById('aiMsg').textContent = '"Intent classified. CommX resolved the request and synced audit trail with core CRM in 420ms."';
-        document.getElementById('sentimentBadge').textContent = 'Positive (0.88)';
-      }, 700);
-    }
-
-    function updateCalc() {
-      const vol = parseInt(document.getElementById('volSlider').value);
-      document.getElementById('volLabel').textContent = vol.toLocaleString();
-      const savingsCr = ((vol * 12 * 6) / 10000000).toFixed(1);
-      const hours = Math.round(vol * 0.45);
-      document.getElementById('saveNum').textContent = `₹ ${savingsCr} Cr`;
-      document.getElementById('hrsSub').textContent = `~ ${hours.toLocaleString()} Agent Hours Reclaimed`;
-    }
   </script>
 </body>
 </html>
